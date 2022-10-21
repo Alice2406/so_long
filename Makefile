@@ -6,7 +6,7 @@
 #    By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/11 16:25:30 by aniezgod          #+#    #+#              #
-#    Updated: 2022/10/20 17:15:58 by aniezgod         ###   ########.fr        #
+#    Updated: 2022/10/21 19:12:04 by aniezgod         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,6 +26,9 @@ WHITE = \e[0;37m
 
 SRCS =	./srcs/so_long.c \
 		./srcs/check_map.c \
+		./srcs/ft_error.c \
+		./srcs/check_char_map.c \
+		./srcs/check_wall.c \
 
 OBJS = ${SRCS:.c=.o}
 

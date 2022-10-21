@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:50:56 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/21 13:57:27 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/10/21 19:18:11 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,8 @@ t_map   init_struct(void)
     s.height = 0;
     s.width = 0;
     s.player = 0;
-    s.wall = 0;
     s.door = 0;
     s.bomb = 0;
-    s.corridor = 0;
     return (s);
 }
 
@@ -39,7 +37,7 @@ char   **read_map(t_map *s, char *av)
     while (str)
     {
         str = get_next_line(fd);
-        s->height++;
+        s->width++;
         if (str)
            str2 = ft_strjoin(str2, str);
     }
@@ -48,25 +46,24 @@ char   **read_map(t_map *s, char *av)
     return (tab);
 }
 
-int check_shape(char **tab)
+int check_shape(t_map *s, char **tab, t_error *error)
 {
-    int len;
     int i;
 
     i = 0;
-    len = ft_strlen(tab[0]);
+    s->height = ft_strlen(tab[0]);
     while (tab[i])
     {
-        if (len != ft_strlen(tab[i]))
-            return (0);
+        if (s->height != ft_strlen(tab[i]))
+            error->shape = 1;
         i++;
     }
-    if (i == len || i <= 2 || len <= 2)
-        return (0);
+    if (i == s->height || i <= 2 || s->height <= 2)
+        error->shape = 1;
     return (1);
 }
 
-int check_map(t_map *s, char **av)
+int check_map(t_map *s, char **av, t_error *error)
 {
     int fd;
     char *str;
@@ -74,23 +71,16 @@ int check_map(t_map *s, char **av)
 
     fd = open(av[1], O_RDONLY);
     if (fd < 0)
-    {
-        ft_printf("The file doesn't exist\n");
-        return (0);
-    }
+        print_error("The file doesn't exist", NULL);
     close (fd);
     str = ft_substr(av[1], ft_strlen(av[1]) - 4, 4);
     if (ft_strncmp(str, ".ber", 4) != 0)
-    {
-        ft_printf("Error : the file is not a .ber\n");
-        return (0);
-    }
+        print_error("The file is not a .ber", NULL);
+    *error = init_error();
     *s = init_struct();
     tab = read_map(s, av[1]);
-    if (check_shape (tab) == 0)
-    {
-        ft_printf("Error : the map is not rectangular\n");
-        return (0);
-    }
+    check_shape (s, tab, error);
+    check_char(s, tab, error);
+    check_wall(tab, error, s);
     return (1);
 }

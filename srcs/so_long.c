@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:14:15 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/21 12:30:21 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/10/21 18:42:16 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,12 +15,10 @@
 int	main(int ac, char **av)
 {
 	t_map s;
-	
+	t_error error;
+
 	if (ac != 2)
-	{
-		ft_printf("Error : nb of arguments\n");
-        return (0);
-	}
-	if(check_map(&s, av) == 1)
+		print_error("Nb of arguments", NULL);
+	if(check_map(&s, av, &error) == 1)
 		ft_printf("coool\n");
 }
