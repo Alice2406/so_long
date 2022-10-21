@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:50:56 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/21 12:39:08 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/10/21 13:57:27 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ t_map   init_struct(void)
     s.corridor = 0;
     return (s);
 }
+
 char   **read_map(t_map *s, char *av)
 {
     char *str;
@@ -33,15 +34,16 @@ char   **read_map(t_map *s, char *av)
     int fd;
     
     fd = open(av, O_RDONLY);
-    str = get_next_line(fd);
-    str2 = ft_strjoin(str, " ");
+    str = get_next_line(fd);    
+    str2 = str;
     while (str)
     {
         str = get_next_line(fd);
-        s->height = 4;
-        str2 = ft_strjoin(str, " ");
+        s->height++;
+        if (str)
+           str2 = ft_strjoin(str2, str);
     }
-    tab = ft_split(str2, ' ');
+    tab = ft_split(str2, '\n');
     close (fd);
     return (tab);
 }
@@ -52,15 +54,15 @@ int check_shape(char **tab)
     int i;
 
     i = 0;
-  //  len = ft_strlen(tab[i]);
-    // while (tab[i])
-    // {
-    //     if (len != ft_strlen(tab[i]))
-    //         return (0);
-    //     i++;
-    // }
-    // if (i == len || i <= 2 || len <= 2)
-    //     return (0);
+    len = ft_strlen(tab[0]);
+    while (tab[i])
+    {
+        if (len != ft_strlen(tab[i]))
+            return (0);
+        i++;
+    }
+    if (i == len || i <= 2 || len <= 2)
+        return (0);
     return (1);
 }
 
