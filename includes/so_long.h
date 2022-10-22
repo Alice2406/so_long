@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/22 15:55:19 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/10/22 17:17:49 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,10 +34,17 @@ typedef struct s_error {
 }				t_error;
 
 typedef struct s_data{
+	void	*mlx;
+	void	*win;
 	void	*img;
 	int		x;
 	int		y;
+	int		bits_per_pixel;
+	int		endian;
+	int		line_length;
+	char	*addr;
 }				t_data;
+
 //------CHECK_MAP--------//
 
 int		check_map(t_map *s, char **av, t_error *error);
