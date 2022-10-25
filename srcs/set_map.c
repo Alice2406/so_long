@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:12:28 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/25 18:19:56 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/10/25 18:41:39 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ static int	putstr_key(int key, t_data *data)
 void	set_map(t_data *data, char **tab, int x, int y)
 {
 	*data = init_data();
-
 	data->tab = tab;
 	data->mlx = mlx_init();
 	data->win = mlx_new_window(data->mlx, (x * 32), (y * 32), "so_long");
@@ -75,7 +74,7 @@ void	show_map(t_data *d, char c)
 {
 	if (c == '1')
 		d->img = mlx_xpm_file_to_image(d->mlx, WALL, &d->x, &d->y);
-	else if (c== '0')
+	else if (c == '0')
 		d->img = mlx_xpm_file_to_image(d->mlx, TERRAIN, &d->x, &d->y);
 	else if (c == 'P')
 		d->img = mlx_xpm_file_to_image(d->mlx, FIRE, &d->x, &d->y);
