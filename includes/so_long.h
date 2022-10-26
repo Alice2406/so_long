@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/25 18:44:39 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/10/26 13:02:40 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,10 +50,11 @@ typedef	struct s_data {
 	void	*img;
 	int		x;
 	int		y;
-	int		bits_per_pixel;
-	int		endian;
-	int		line_length;
-	char	*addr;
+	int		bomb;
+	// int		bits_per_pixel;
+	// int		endian;
+	// int		line_length;
+	// char	*addr;
 	int		a;
 	int		b;
 	int		key;

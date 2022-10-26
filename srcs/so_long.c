@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:14:15 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/25 18:39:54 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/10/26 13:11:59 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,5 +27,10 @@ int	main(int ac, char **av)
 	height = s.height;
 	width = s.width;
 	ft_memset(&data, 0, sizeof(t_data));
+	data.bomb = s.bomb;
 	set_map(&data, tab, height, width);
 }
+
+
+/*j'en ai marre, j'en peux plus de ce genre de personne qui me pourrit la vie a longueur de journee=
+j'aimerais qu'on me laisse tranquille, j'ai assez souffert dans ma vie */

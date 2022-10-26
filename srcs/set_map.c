@@ -6,26 +6,26 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:12:28 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/25 18:41:39 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/10/26 11:49:04 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_data	init_data(void)
-{
-	t_data	data;
+// t_data	init_data(void)
+// {
+// 	t_data	data;
 
-	data.x = 0;
-	data.y = 0;
-	data.bits_per_pixel = 0;
-	data.endian = 0;
-	data.line_length = 0;
-	data.a = 0;
-	data.b = 0;
-	data.key = 0;
-	return (data);
-}
+// 	data.x = 0;
+// 	data.y = 0;
+// 	data.bits_per_pixel = 0;
+// 	data.endian = 0;
+// 	data.line_length = 0;
+// 	data.a = 0;
+// 	data.b = 0;
+// 	data.key = 0;
+// 	return (data);
+// }
 
 static int	putstr_key(int key, t_data *data)
 {
@@ -37,7 +37,7 @@ static int	putstr_key(int key, t_data *data)
 
 void	set_map(t_data *data, char **tab, int x, int y)
 {
-	*data = init_data();
+//	*data = init_data();
 	data->tab = tab;
 	data->mlx = mlx_init();
 	data->win = mlx_new_window(data->mlx, (x * 32), (y * 32), "so_long");
