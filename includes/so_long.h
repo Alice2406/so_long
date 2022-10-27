@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/27 16:19:29 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/10/27 16:36:32 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ typedef	struct s_mlx {
 	char	**tab;
 }				t_mlx;
 
-// typedef struct s_data {
+// typedef struct s_data { 
 // 	struct t_map	*s;
 // 	struct t_error	*error;
 // 	struct t_mlx	*m;
@@ -96,3 +96,17 @@ void	player_place(t_mlx *m);
 int		check_tab(t_mlx *m);
 
 #endif
+
+//corriger l'erreur de merde 
+//mettre en place ma nouvelle structure avec tab
+//gerer les leaks
+//etudier et mettre en place le backtracking --> regarder la video et check discord pour savoir ce qu'il faut faire
+//recheck et les leaks et la norminette 
+//verifier l'enonce pour etre sur que j'ai repondu a toutes les attentes
+
+
+//A faire cette semaine
+//essayer de finir so_long
+//corriger quelqu'un pour avoir 3 points
+//corriger mon so_long peu importe si il est correct ou non 
+// Bon couurage meuf !! You can do it !! I'm so proud of you girl !! 
