@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:50:56 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/25 18:40:27 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/10/27 16:17:31 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ char	**read_map(t_map *s, char *av)
 {
 	char	*str;
 	char	*str2;
-	char	**tab;
 	int		fd;
+	char	**tab;
 
 	fd = open(av, O_RDONLY);
 	str = get_next_line(fd);
@@ -43,7 +43,7 @@ char	**read_map(t_map *s, char *av)
 	}
 	tab = ft_split(str2, '\n');
 	close (fd);
-	return (tab);
+	return (free(str2),tab);
 }
 
 int	check_shape(t_map *s, char **tab, t_error *error)
@@ -75,7 +75,11 @@ char	**check_map(t_map *s, char **av, t_error *error)
 	close (fd);
 	str = ft_substr(av[1], ft_strlen(av[1]) - 4, 4);
 	if (ft_strncmp(str, ".ber", 4) != 0)
+	{
+		free(str);
 		print_error("The file is not a .ber", NULL);
+	}
+	free(str);
 	*error = init_error();
 	*s = init_struct();
 	tab = read_map(s, av[1]);

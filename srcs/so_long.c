@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:14:15 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/26 13:11:59 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/10/27 16:19:16 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	main(int ac, char **av)
 {
 	t_map	s;
 	t_error	error;
-	t_data	data;
+	t_mlx	m;
 	char	**tab;
 	int		height;
 	int		width;
@@ -26,11 +26,14 @@ int	main(int ac, char **av)
 	tab = check_map(&s, av, &error);
 	height = s.height;
 	width = s.width;
-	ft_memset(&data, 0, sizeof(t_data));
-	data.bomb = s.bomb;
-	set_map(&data, tab, height, width);
+	ft_memset(&m, 0, sizeof(t_mlx));
+	set_map(&m, tab, height, width);
 }
 
-
-/*j'en ai marre, j'en peux plus de ce genre de personne qui me pourrit la vie a longueur de journee=
-j'aimerais qu'on me laisse tranquille, j'ai assez souffert dans ma vie */
+//check_bomb //done
+//check_char_map //i think done 
+//check_map 
+//check wall // done
+//ft_error
+//move_player
+//set_map

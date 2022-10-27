@@ -6,28 +6,28 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:54:22 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/26 13:04:17 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/10/27 15:47:49 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	player_place(t_data *data)
+void	player_place(t_mlx *m)
 {
 	int		i;
 	int		j;
 
 	i = 0;
-	data->a = -1;
-	while (data->tab[i] && data->a == -1)
+	m->a = -1;
+	while (m->tab[i] && m->a == -1)
 	{
 		j = 0;
-		while (data->tab[i][j] && data->a == -1)
+		while (m->tab[i][j] && m->a == -1)
 		{
-			if (data->tab[i][j] == 'P')
+			if (m->tab[i][j] == 'P')
 			{
-				data->a = i;
-				data->b = j;
+				m->a = i;
+				m->b = j;
 			}
 			j++;
 		}
@@ -35,66 +35,62 @@ void	player_place(t_data *data)
 	}
 }
 
-void	print_img_move(t_data *d)
+void	print_img_move(t_mlx *m)
 {
-	if (d->tab[d->a][d->b] == 'E')
+	if (m->tab[m->a][m->b] == 'E')
 	{
-		d->img = mlx_xpm_file_to_image(d->mlx, DOOR, &d->x, &d->y);
-		mlx_put_image_to_window(d->mlx, d->win, d->img, d->b * 32, d->a * 32);
+		m->img = mlx_xpm_file_to_image(m->mlx, DOOR, &m->x, &m->y);
+		mlx_put_image_to_window(m->mlx, m->win, m->img, m->b * 32, m->a * 32);
 	}
 	else
 	{
-		d->img = mlx_xpm_file_to_image(d->mlx, TERRAIN, &d->x, &d->y);
-		mlx_put_image_to_window(d->mlx, d->win, d->img, d->b * 32, d->a * 32);
+		m->img = mlx_xpm_file_to_image(m->mlx, TERRAIN, &m->x, &m->y);
+		mlx_put_image_to_window(m->mlx, m->win, m->img, m->b * 32, m->a * 32);
 	}
 }
 
-void	move_back_or_front(t_data *d)
+void	move_back_or_front(t_mlx *m)
 {
-	if ((d->key == S && d->tab[d->a + 1][d->b] != '1')
-		|| (d->key == W && d->tab[d->a - 1][d->b] != '1'))
+	if ((m->key == S && m->tab[m->a + 1][m->b] != '1')
+		|| (m->key == W && m->tab[m->a - 1][m->b] != '1'))
 	{
-		if (((d->tab[d->a + 1][d->b] == 'C' && d->key == S)
-			|| (d->tab[d->a - 1][d->b] == 'C' && d->key == W)) && d->bomb != 0)
-			d->bomb--;
-		print_img_move(d);
-		if (d->key == S)
-			d->a += 1;
+		print_img_move(m);
+		if (m->key == S)
+			m->a += 1;
 		else
-			d->a -= 1;
-		d->img = mlx_xpm_file_to_image(d->mlx, FIRE, &d->x, &d->y);
-		mlx_put_image_to_window(d->mlx, d->win, d->img, d->b * 32, d->a * 32);
+			m->a -= 1;
+		m->img = mlx_xpm_file_to_image(m->mlx, FIRE, &m->x, &m->y);
+		mlx_put_image_to_window(m->mlx, m->win, m->img, m->b * 32, m->a * 32);
 	}
-	ft_printf("bomb : %d\n", d->bomb);
-	if (d->tab[d->a][d->b] == 'E' && d->bomb == 0)
+	if (m->tab[m->a][m->b] == 'C')
+		m->tab[m->a][m->b] = '0';
+	if (m->tab[m->a][m->b] == 'E' && check_tab(m) == 0)
+			exit(0);
+}
+
+void	move_right_or_left(t_mlx *m)
+{
+	if ((m->key == D && m->tab[m->a][m->b + 1] != '1')
+		|| (m->key == A && m->tab[m->a][m->b - 1] != '1'))
+	{
+		print_img_move(m);
+		if (m->key == D)
+			m->b += 1;
+		else
+			m->b -= 1;
+		m->img = mlx_xpm_file_to_image(m->mlx, FIRE, &m->x, &m->y);
+		mlx_put_image_to_window(m->mlx, m->win, m->img, m->b * 32, m->a * 32);
+	}
+	if (m->tab[m->a][m->b] == 'C')
+		m->tab[m->a][m->b] = '0';
+	if (m->tab[m->a][m->b] == 'E' && check_tab(m) == 0)
 		exit(0);
 }
 
-void	move_right_or_left(t_data *d)
+void	move_player(t_mlx *m)
 {
-	if ((d->key == D && d->tab[d->a][d->b + 1] != '1')
-		|| (d->key == A && d->tab[d->a][d->b - 1] != '1'))
-	{
-		if (((d->tab[d->a][d->b + 1] == 'C' && d->key == D)
-			|| (d->tab[d->a][d->b - 1] == 'C' && d->key == A)) && d->bomb != 0)
-			d->bomb--;
-		print_img_move(d);
-		if (d->key == D)
-			d->b += 1;
-		else
-			d->b -= 1;
-		d->img = mlx_xpm_file_to_image(d->mlx, FIRE, &d->x, &d->y);
-		mlx_put_image_to_window(d->mlx, d->win, d->img, d->b * 32, d->a * 32);
-	}
-	ft_printf("bomb : %d\n", d->bomb);
-	if (d->tab[d->a][d->b] == 'E' && d->bomb == 0)
-		exit(0);
-}
-
-void	move_player(t_data *data)
-{
-	if (data->key == D || data->key == A)
-		move_right_or_left(data);
-	else if (data->key == S || data->key == W)
-		move_back_or_front(data);
+	if (m->key == D || m->key == A)
+		move_right_or_left(m);
+	else if (m->key == S || m->key == W)
+		move_back_or_front(m);
 }
