@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:14:15 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/27 16:19:16 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/10/28 12:14:30 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,23 @@ int	main(int ac, char **av)
 	t_error	error;
 	t_mlx	m;
 	char	**tab;
-	int		height;
-	int		width;
 
 	if (ac != 2)
 		print_error("Nb of arguments", NULL);
-	tab = check_map(&s, av, &error);
-	height = s.height;
-	width = s.width;
+	tab = check_map(&s, av, &error, tab);
+	find_error(&error, tab);
 	ft_memset(&m, 0, sizeof(t_mlx));
-	set_map(&m, tab, height, width);
+	set_map(&m, tab, s.height, s.width);
 }
 
 //check_bomb //done
-//check_char_map //i think done 
-//check_map 
+//check_char_map //done 
 //check wall // done
+
+//check_map 
 //ft_error
+//so_long
+
+
 //move_player
 //set_map

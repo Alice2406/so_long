@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:12:28 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/27 15:52:23 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/10/28 11:53:32 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	print_move(void)
 {
 	static int	i = 1;
+
 	ft_printf("Nb of move : %d\n", i);
 	i++;
 }

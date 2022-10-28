@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:54:22 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/27 15:47:49 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/10/28 11:52:43 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	move_back_or_front(t_mlx *m)
 	if (m->tab[m->a][m->b] == 'C')
 		m->tab[m->a][m->b] = '0';
 	if (m->tab[m->a][m->b] == 'E' && check_tab(m) == 0)
-			exit(0);
+		exit(0);
 }
 
 void	move_right_or_left(t_mlx *m)

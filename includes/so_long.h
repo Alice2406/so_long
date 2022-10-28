@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/27 16:36:32 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/10/28 14:19:47 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ typedef struct s_error {
 	int	wall;
 }				t_error;
 
-typedef	struct s_mlx {
+typedef struct s_mlx {
 	void	*mlx;
 	void	*win;
 	void	*img;
@@ -60,16 +60,10 @@ typedef	struct s_mlx {
 	char	**tab;
 }				t_mlx;
 
-// typedef struct s_data { 
-// 	struct t_map	*s;
-// 	struct t_error	*error;
-// 	struct t_mlx	*m;
-// }				t_data;
-
 //------CHECK_MAP--------//
 
-char	**read_map(t_map *s, char *av);
-char	**check_map(t_map *s, char **av, t_error *error);
+char	**read_map(t_map *s, char *av, char **tab);
+char	**check_map(t_map *s, char **av, t_error *error, char **tab);
 int		check_shape(t_map *s, char **tab, t_error *error);
 void	check_line(char *str, t_error *error);
 int		check_wall(char **tab, t_error *error, t_map *s);
@@ -97,16 +91,20 @@ int		check_tab(t_mlx *m);
 
 #endif
 
-//corriger l'erreur de merde 
-//mettre en place ma nouvelle structure avec tab
 //gerer les leaks
 //etudier et mettre en place le backtracking --> regarder la video et check discord pour savoir ce qu'il faut faire
 //recheck et les leaks et la norminette 
 //verifier l'enonce pour etre sur que j'ai repondu a toutes les attentes
-
 
 //A faire cette semaine
 //essayer de finir so_long
 //corriger quelqu'un pour avoir 3 points
 //corriger mon so_long peu importe si il est correct ou non 
 // Bon couurage meuf !! You can do it !! I'm so proud of you girl !! 
+
+//ALGORITHME DE REMPLISSAGE PAR DIFFUSION
+
+//Creer une image avec 1-> pixel noir et 0-> pixel blanc et P ->pixel rouge et C -> blanc et E -> blanc?
+//
+//
+//comparaison tab et matrice : si emplacement exit dans matrice non rouge alors -> error 

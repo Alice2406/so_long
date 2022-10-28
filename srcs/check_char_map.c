@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 15:46:30 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/27 15:29:47 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/10/28 11:48:07 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,6 +66,5 @@ int	check_char(t_map *s, char **tab, t_error *error)
 		i++;
 	}
 	check_nb_item(s, error);
-	free(str);
 	return (1);
 }

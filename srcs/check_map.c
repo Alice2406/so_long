@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:50:56 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/27 16:17:31 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/10/28 13:45:49 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,26 +24,26 @@ t_map	init_struct(void)
 	return (s);
 }
 
-char	**read_map(t_map *s, char *av)
+char	**read_map(t_map *s, char *av, char **tab) //shit
 {
 	char	*str;
 	char	*str2;
 	int		fd;
-	char	**tab;
 
 	fd = open(av, O_RDONLY);
 	str = get_next_line(fd);
 	str2 = str;
-	while (str)
+	s->width++;
+	while ((str = get_next_line(fd)) != NULL)
 	{
-		str = get_next_line(fd);
 		s->width++;
+		str2 = ft_strjoin(str2, str);
 		if (str)
-			str2 = ft_strjoin(str2, str);
+			free(str);
 	}
 	tab = ft_split(str2, '\n');
 	close (fd);
-	return (free(str2),tab);
+	return (free(str2), tab);
 }
 
 int	check_shape(t_map *s, char **tab, t_error *error)
@@ -63,11 +63,10 @@ int	check_shape(t_map *s, char **tab, t_error *error)
 	return (1);
 }
 
-char	**check_map(t_map *s, char **av, t_error *error)
+char	**check_map(t_map *s, char **av, t_error *error, char **tab) //shit
 {
 	int		fd;
 	char	*str;
-	char	**tab;
 
 	fd = open(av[1], O_RDONLY);
 	if (fd < 0)
@@ -82,10 +81,9 @@ char	**check_map(t_map *s, char **av, t_error *error)
 	free(str);
 	*error = init_error();
 	*s = init_struct();
-	tab = read_map(s, av[1]);
+	tab = read_map(s, av[1], tab);
 	check_shape(s, tab, error);
 	check_char(s, tab, error);
 	check_wall(tab, error, s);
-	find_error(error, tab);
 	return (tab);
 }

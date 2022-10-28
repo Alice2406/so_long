@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 16:45:03 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/27 13:59:17 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/10/28 11:48:25 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,10 +47,13 @@ int	print_error(char *msg, char **tab)
 	int	i;
 
 	i = 0;
-	while (tab[i])
+	if (tab)
 	{
-		free (tab[i]);
-		i++;
+		while (tab[i])
+		{
+			free (tab[i]);
+			i++;
+		}
 	}
 	ft_printf("Error : %s\n", msg);
 	exit(0);
