@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/28 14:19:47 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/01 18:14:59 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,15 @@ typedef struct s_mlx {
 	char	**tab;
 }				t_mlx;
 
+typedef struct s_way {
+	char	**map;
+	int		exit;
+	int		bomb;
+	int		tbomb;
+	int		x;
+	int		y;
+}
+
 //------CHECK_MAP--------//
 
 char	**read_map(t_map *s, char *av, char **tab);
@@ -88,23 +97,7 @@ void	set_map(t_mlx *m, char **tab, int x, int y);
 void	move_player(t_mlx *m);
 void	player_place(t_mlx *m);
 int		check_tab(t_mlx *m);
+void	check_way(char **tab, t_way *w, t_error *error);
+void	flood_fill(char c, t_way *w, int a, int b);
 
 #endif
-
-//gerer les leaks
-//etudier et mettre en place le backtracking --> regarder la video et check discord pour savoir ce qu'il faut faire
-//recheck et les leaks et la norminette 
-//verifier l'enonce pour etre sur que j'ai repondu a toutes les attentes
-
-//A faire cette semaine
-//essayer de finir so_long
-//corriger quelqu'un pour avoir 3 points
-//corriger mon so_long peu importe si il est correct ou non 
-// Bon couurage meuf !! You can do it !! I'm so proud of you girl !! 
-
-//ALGORITHME DE REMPLISSAGE PAR DIFFUSION
-
-//Creer une image avec 1-> pixel noir et 0-> pixel blanc et P ->pixel rouge et C -> blanc et E -> blanc?
-//
-//
-//comparaison tab et matrice : si emplacement exit dans matrice non rouge alors -> error 

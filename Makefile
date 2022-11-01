@@ -6,7 +6,7 @@
 #    By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/11 16:25:30 by aniezgod          #+#    #+#              #
-#    Updated: 2022/10/27 15:15:33 by aniezgod         ###   ########.fr        #
+#    Updated: 2022/11/01 18:13:29 by aniezgod         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,6 +32,7 @@ SRCS =	./srcs/so_long.c \
 		./srcs/set_map.c \
 		./srcs/move_player.c \
 		./srcs/check_bomb.c \
+		./srcs/check_way.c \
 
 OBJS = ${SRCS:.c=.o}
 
