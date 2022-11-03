@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/01 18:14:59 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/03 10:58:12 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,12 @@ typedef struct s_way {
 	int		tbomb;
 	int		x;
 	int		y;
-}
+}				t_way;
 
 //------CHECK_MAP--------//
 
 char	**read_map(t_map *s, char *av, char **tab);
-char	**check_map(t_map *s, char **av, t_error *error, char **tab);
+char	**check_map(t_map *s, char **av, t_error *error, char **tab, t_way *w);
 int		check_shape(t_map *s, char **tab, t_error *error);
 void	check_line(char *str, t_error *error);
 int		check_wall(char **tab, t_error *error, t_map *s);
@@ -98,6 +98,6 @@ void	move_player(t_mlx *m);
 void	player_place(t_mlx *m);
 int		check_tab(t_mlx *m);
 void	check_way(char **tab, t_way *w, t_error *error);
-void	flood_fill(char c, t_way *w, int a, int b);
+void	flood_fill(t_way *w, int x, int y);
 
 #endif

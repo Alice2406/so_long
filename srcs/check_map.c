@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:50:56 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/28 13:45:49 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/03 11:07:55 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ int	check_shape(t_map *s, char **tab, t_error *error)
 	return (1);
 }
 
-char	**check_map(t_map *s, char **av, t_error *error, char **tab) //shit
+char	**check_map(t_map *s, char **av, t_error *error, char **tab, t_way *w) //shit
 {
 	int		fd;
 	char	*str;
@@ -85,5 +85,7 @@ char	**check_map(t_map *s, char **av, t_error *error, char **tab) //shit
 	check_shape(s, tab, error);
 	check_char(s, tab, error);
 	check_wall(tab, error, s);
+	check_way(tab, w, error);
+//	tab = read_map(s, av[1], tab);
 	return (tab);
 }
