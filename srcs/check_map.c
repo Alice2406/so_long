@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:50:56 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/03 11:07:55 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/03 12:45:49 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,12 @@ char	**read_map(t_map *s, char *av, char **tab) //shit
 	fd = open(av, O_RDONLY);
 	str = get_next_line(fd);
 	str2 = str;
-	s->width++;
-	while ((str = get_next_line(fd)) != NULL)
+	while (str)
 	{
+		str = get_next_line(fd);
 		s->width++;
-		str2 = ft_strjoin(str2, str);
 		if (str)
-			free(str);
+			str2 = ft_strjoin(str2, str);
 	}
 	tab = ft_split(str2, '\n');
 	close (fd);
@@ -63,10 +62,11 @@ int	check_shape(t_map *s, char **tab, t_error *error)
 	return (1);
 }
 
-char	**check_map(t_map *s, char **av, t_error *error, char **tab, t_way *w) //shit
+char	**check_map(t_map *s, char **av, t_error *error, t_way *w)
 {
 	int		fd;
 	char	*str;
+	char	**tab;
 
 	fd = open(av[1], O_RDONLY);
 	if (fd < 0)
@@ -86,6 +86,7 @@ char	**check_map(t_map *s, char **av, t_error *error, char **tab, t_way *w) //sh
 	check_char(s, tab, error);
 	check_wall(tab, error, s);
 	check_way(tab, w, error);
-//	tab = read_map(s, av[1], tab);
+	s->width = 0;
+	tab = read_map(s, av[1], tab);
 	return (tab);
 }

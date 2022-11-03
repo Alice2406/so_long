@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 16:45:03 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/28 11:48:25 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/03 12:16:31 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ t_error	init_error(void)
 	error.char_map = 0;
 	error.shape = 0;
 	error.wall = 0;
+	error.way = 0;
 	return (error);
 }
 
@@ -39,6 +40,8 @@ int	find_error(t_error *error, char **tab)
 		print_error("Nb of player is incorrect", tab);
 	else if (error->bomb == 1)
 		print_error("Nb of collective is incorrect", tab);
+	else if (error->way == 1)
+		print_error("There is no way to solve the game", tab);
 	return (1);
 }
 

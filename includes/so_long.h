@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/03 10:58:12 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/03 12:15:32 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,7 @@ typedef struct s_error {
 	int	char_map;
 	int	shape;
 	int	wall;
+	int	way;
 }				t_error;
 
 typedef struct s_mlx {
@@ -72,7 +73,7 @@ typedef struct s_way {
 //------CHECK_MAP--------//
 
 char	**read_map(t_map *s, char *av, char **tab);
-char	**check_map(t_map *s, char **av, t_error *error, char **tab, t_way *w);
+char	**check_map(t_map *s, char **av, t_error *error, t_way *w);
 int		check_shape(t_map *s, char **tab, t_error *error);
 void	check_line(char *str, t_error *error);
 int		check_wall(char **tab, t_error *error, t_map *s);
