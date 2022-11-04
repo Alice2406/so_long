@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:14:15 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/03 15:42:22 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/04 11:34:54 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@ int	main(int ac, char **av)
 
 //LEAKS
 //maintenir la touche -> continue d'avancer
+//reunir mes structs (enfin essayer) pour gagner de la place et des mouv inutiles
+//https://harm-smits.github.io/42docs/libs/minilibx/events.html -> pour la continuite de la touche et pour esc/ croix rouge 
 //sprite flamme (player)
 //		-augmente avec les bombes (3 ou 4) 
 //sprite eau (ennemies)
@@ -43,4 +45,3 @@ int	main(int ac, char **av)
 //gerer la croix et esc 
 //faire un logo so long
 //telecharger mes sprites
-//trouver un logo
