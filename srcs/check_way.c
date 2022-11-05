@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/01 15:03:27 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/03 14:43:58 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/05 12:13:32 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ void	flood_fill(t_way *w, int x, int y)
 	return ;
 }
 
-void	check_way(char **tab, t_way *w, t_error *error)
+void	check_way(char **tab, t_way *w, t_data *d)
 {
 	int	x;
 	int y;
@@ -95,5 +95,5 @@ void	check_way(char **tab, t_way *w, t_error *error)
 	y = w->y;
 	flood_fill(w, x, y);
 	if (w->exit != 1 || w->tbomb != w->bomb)
-		error->way = 1;
+		d->error->way = 1;
 }

@@ -6,25 +6,13 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:50:56 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/03 12:45:49 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/05 12:13:09 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-t_map	init_struct(void)
-{
-	t_map	s;
-
-	s.height = 0;
-	s.width = 0;
-	s.player = 0;
-	s.door = 0;
-	s.bomb = 0;
-	return (s);
-}
-
-char	**read_map(t_map *s, char *av, char **tab) //shit
+char	**read_map(t_data *d, char *av, char **tab) //shit
 {
 	char	*str;
 	char	*str2;
@@ -36,7 +24,7 @@ char	**read_map(t_map *s, char *av, char **tab) //shit
 	while (str)
 	{
 		str = get_next_line(fd);
-		s->width++;
+		d->s->width++;
 		if (str)
 			str2 = ft_strjoin(str2, str);
 	}
@@ -45,24 +33,24 @@ char	**read_map(t_map *s, char *av, char **tab) //shit
 	return (free(str2), tab);
 }
 
-int	check_shape(t_map *s, char **tab, t_error *error)
+int	check_shape(t_data *d, char **tab)
 {
 	int	i;
 
 	i = 0;
-	s->height = ft_strlen(tab[0]);
+	d->s->height = ft_strlen(tab[0]);
 	while (tab[i])
 	{
-		if (s->height != ft_strlen(tab[i]))
-			error->shape = 1;
+		if (d->s->height != ft_strlen(tab[i]))
+			d->error->shape = 1;
 		i++;
 	}
-	if (i == s->height || i <= 2 || s->height <= 2)
-		error->shape = 1;
+	if (i == d->s->height || i <= 2 || d->s->height <= 2)
+		d->error->shape = 1;
 	return (1);
 }
 
-char	**check_map(t_map *s, char **av, t_error *error, t_way *w)
+char	**check_map(t_data *d, char **av, t_way *w)
 {
 	int		fd;
 	char	*str;
@@ -79,14 +67,12 @@ char	**check_map(t_map *s, char **av, t_error *error, t_way *w)
 		print_error("The file is not a .ber", NULL);
 	}
 	free(str);
-	*error = init_error();
-	*s = init_struct();
-	tab = read_map(s, av[1], tab);
-	check_shape(s, tab, error);
-	check_char(s, tab, error);
-	check_wall(tab, error, s);
-	check_way(tab, w, error);
-	s->width = 0;
-	tab = read_map(s, av[1], tab);
+	tab = read_map(d, av[1], tab);
+	check_shape(d, tab);
+	check_char(d, tab);
+	check_wall(tab, d);
+	check_way(tab, w, d);
+	d->s->width = 0;
+	tab = read_map(d, av[1], tab);
 	return (tab);
 }

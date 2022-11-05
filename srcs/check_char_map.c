@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 15:46:30 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/10/28 11:48:07 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/05 12:11:46 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,27 +25,27 @@ char	ft_strchr2(const char *s, int c)
 	return (0);
 }
 
-void	count_char(t_map *s, char c)
+void	count_char(t_data *d, char c)
 {
 	if (c == 'C')
-		s->bomb++;
+		d->s->bomb++;
 	else if (c == 'E')
-		s->door++;
+		d->s->door++;
 	else if (c == 'P')
-		s->player++;
+		d->s->player++;
 }
 
-void	check_nb_item(t_map *s, t_error *error)
+void	check_nb_item(t_data *d)
 {
-	if (s->bomb < 1)
-		error->bomb = 1;
-	if (s->door != 1)
-		error->exit = 1;
-	if (s->player != 1)
-		error->player = 1;
+	if (d->s->bomb < 1)
+		d->error->bomb = 1;
+	if (d->s->door != 1)
+		d->error->exit = 1;
+	if (d->s->player != 1)
+		d->error->player = 1;
 }
 
-int	check_char(t_map *s, char **tab, t_error *error)
+int	check_char(t_data *d, char **tab)
 {
 	char	*str;
 	int		i;
@@ -59,12 +59,12 @@ int	check_char(t_map *s, char **tab, t_error *error)
 		while (tab[i][j])
 		{
 			if (ft_strchr2(str, tab[i][j]) == 0)
-				error->char_map = 1;
-			count_char(s, ft_strchr2(str, tab[i][j]));
+				d->error->char_map = 1;
+			count_char(d, ft_strchr2(str, tab[i][j]));
 			j++;
 		}
 		i++;
 	}
-	check_nb_item(s, error);
+	check_nb_item(d);
 	return (1);
 }

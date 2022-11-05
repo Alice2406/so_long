@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:14:15 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/04 11:34:54 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/05 12:21:48 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 int	main(int ac, char **av)
 {
-	t_map	s;
-	t_error	error;
+	t_data	*data;
 	t_mlx	m;
 	t_way	way;
 	char	**tab;
 
 	if (ac != 2)
 		print_error("Nb of arguments", NULL);
-	tab = check_map(&s, av, &error, &way);
-	find_error(&error, tab);
+	data = data_init();
+	tab = check_map(data, av, &way);
+	find_error(data, tab);
 	ft_memset(&m, 0, sizeof(t_mlx));
-	set_map(&m, tab, s.height, s.width);
+	set_map(&m, tab, data->s->height, data->s->width);
 }
 
 //LEAKS
@@ -45,3 +45,16 @@ int	main(int ac, char **av)
 //gerer la croix et esc 
 //faire un logo so long
 //telecharger mes sprites
+
+//APPLE
+//ESC	53
+//W		13
+//A		0
+//S		1
+//D		2
+//RED_CROSS		17
+//LINUX
+//ESC	65307
+//RED_CROSS	33
+
+//error sur check wall -> a voir 
