@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 11:32:11 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/05 12:09:07 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/07 15:21:25 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,20 +32,30 @@ void	error_init(t_data *d)
 	d->error->way = 0;
 }
 
+void	way_init(t_data *d)
+{
+	d->w->map = NULL;
+	d->w->exit = 0;
+	d->w->bomb = 0;
+	d->w->tbomb = 0;
+	d->w->x = 0;
+	d->w->y = 0;
+}
+
 t_data	*data_init(void)
 {
 	t_data	*d;
-	
+
 	d = malloc(sizeof(d));
 	if (!d)
 		return (NULL);
 	d->s = malloc(sizeof(t_map));
-	if (!d->s)
-		return (NULL);
 	d->error = malloc(sizeof(t_error));
-	if (!d->error)
+	d->w = malloc(sizeof(t_way));
+	if (!d->s || !d->error || !d->w)
 		return (NULL);
 	map_init(d);
 	error_init(d);
+	way_init(d);
 	return (d);
 }

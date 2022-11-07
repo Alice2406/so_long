@@ -6,13 +6,13 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:50:56 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/05 12:13:09 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/07 15:18:30 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	**read_map(t_data *d, char *av, char **tab) //shit
+char	**read_map(t_data *d, char *av, char **tab)
 {
 	char	*str;
 	char	*str2;
@@ -33,6 +33,31 @@ char	**read_map(t_data *d, char *av, char **tab) //shit
 	return (free(str2), tab);
 }
 
+int	check_tab(t_mlx *m)
+{
+	int		i;
+	int		j;
+	int		bomb;
+
+	i = 0;
+	bomb = 0;
+	while (m->tab[i])
+	{
+		j = 0;
+		while (m->tab[i][j])
+		{
+			if (m->tab[i][j] == 'C')
+				bomb++;
+			j++;
+		}
+		i++;
+	}
+	if (bomb != 0)
+		return (1);
+	else
+		return (0);
+}
+
 int	check_shape(t_data *d, char **tab)
 {
 	int	i;
@@ -50,7 +75,7 @@ int	check_shape(t_data *d, char **tab)
 	return (1);
 }
 
-char	**check_map(t_data *d, char **av, t_way *w)
+char	**check_map(t_data *d, char **av)
 {
 	int		fd;
 	char	*str;
@@ -71,7 +96,8 @@ char	**check_map(t_data *d, char **av, t_way *w)
 	check_shape(d, tab);
 	check_char(d, tab);
 	check_wall(tab, d);
-	check_way(tab, w, d);
+	find_error(d, tab);
+	check_way(tab, d);
 	d->s->width = 0;
 	tab = read_map(d, av[1], tab);
 	return (tab);

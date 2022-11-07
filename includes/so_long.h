@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/05 12:17:39 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/07 18:17:44 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,10 @@
 # define WALL	"./textures/wall.xpm"
 # define BOMB	"./textures/bomb.xpm"
 # define DOOR	"./textures/door.xpm"
+# define P_A "./textures/player_a.xpm"
+# define P_W "./textures/player_w.xpm"
+# define P_S "./textures/player_s.xpm"
+# define P_D "./textures/player_d.xpm"
 
 typedef struct s_map {
 	int	height;
@@ -70,14 +74,20 @@ typedef struct s_way {
 	int		y;
 }				t_way;
 
+typedef struct s_bonus {
+	int	life;
+}				t_bonus;
+
 typedef struct s_data {
 	struct s_map	*s;
 	struct s_error	*error;
+	struct s_way	*w;
 }				t_data;
+
 //------CHECK_MAP--------//
 
 char	**read_map(t_data *d, char *av, char **tab);
-char	**check_map(t_data *d, char **av, t_way *w);
+char	**check_map(t_data *d, char **av);
 int		check_shape(t_data *d, char **tab);
 void	check_line(char *str, t_data *d);
 int		check_wall(char **tab, t_data *d);
@@ -89,8 +99,6 @@ int		check_char(t_data *d, char **tab);
 
 //------INIT_STRUC------//
 
-//t_map	init_struct(void);
-//t_error	init_error(void);
 t_data	*data_init(void);
 
 //--------ERROR---------//
@@ -104,7 +112,15 @@ void	set_map(t_mlx *m, char **tab, int x, int y);
 void	move_player(t_mlx *m);
 void	player_place(t_mlx *m);
 int		check_tab(t_mlx *m);
-void	check_way(char **tab, t_way *w, t_data *d);
-void	flood_fill(t_way *w, int x, int y);
+void	check_way(char **tab, t_data *d);
+void	flood_fill(t_data *d, int x, int y);
+void	print_img_move(t_mlx *m);
+
+//-------BONUS------//
+
+void	move_player_bonus(t_mlx *m);
+int	check_life(int life, t_mlx *m);
+void	move_right_or_left_bonus(t_mlx *m, char *stade);
+void	move_back_or_front_bonus(t_mlx *m, char *stade);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:14:15 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/05 12:21:48 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/07 16:54:20 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,13 +16,12 @@ int	main(int ac, char **av)
 {
 	t_data	*data;
 	t_mlx	m;
-	t_way	way;
 	char	**tab;
 
 	if (ac != 2)
 		print_error("Nb of arguments", NULL);
 	data = data_init();
-	tab = check_map(data, av, &way);
+	tab = check_map(data, av);
 	find_error(data, tab);
 	ft_memset(&m, 0, sizeof(t_mlx));
 	set_map(&m, tab, data->s->height, data->s->width);
@@ -30,12 +29,13 @@ int	main(int ac, char **av)
 
 //LEAKS
 //maintenir la touche -> continue d'avancer
-//reunir mes structs (enfin essayer) pour gagner de la place et des mouv inutiles
-//https://harm-smits.github.io/42docs/libs/minilibx/events.html -> pour la continuite de la touche et pour esc/ croix rouge 
+//https://harm-smits.github.io/42docs/libs/minilibx/events.html 
+//-> pour la continuite de la touche et pour esc/ croix rouge 
 //sprite flamme (player)
 //		-augmente avec les bombes (3 ou 4) 
 //sprite eau (ennemies)
-//		-bouge en a des endroits bien precis de la map (de droite a gauche ou de haut en bas)
+//		-bouge en a des endroits bien precis de la map
+//(de droite a gauche ou de haut en bas)
 //		-fais retrecir la flamme si contact
 //compteur de mouvement en bas de l'ecran 
 //nom de mon so long en bas de l'ecran 

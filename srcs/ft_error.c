@@ -6,12 +6,11 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 16:45:03 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/05 12:17:20 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/07 15:20:50 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
 
 int	find_error(t_data *d, char **tab)
 {

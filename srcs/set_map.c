@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:12:28 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/04 11:12:55 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/07 18:13:27 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,8 @@ static int	putstr_key(int key, t_mlx *m)
 	if (key == 100 || key == 97 || key == 119 || key == 115)
 	{
 		print_move();
-		move_player(m);
+//		move_player(m);
+		move_player_bonus(m);
 	}
 	return (0);
 }
