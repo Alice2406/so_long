@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/07 18:17:44 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/08 14:55:43 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,15 @@
 # include "libft.h"
 # include "mlx.h"
 
-# define W	119
-# define A	97
-# define D	100
-# define S	115
+//# define W	119
+//# define A	97
+//# define D	100
+//# define S	115
+
+# define W	13
+# define A	0
+# define D	2
+# define S	1
 
 # define TERRAIN	"./textures/terrain.xpm"
 # define FIRE	"./textures/fire.xpm"

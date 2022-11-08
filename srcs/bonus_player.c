@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:55:08 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/07 18:21:17 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/08 21:32:57 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,31 +70,74 @@ void	move_right_or_left_bonus(t_mlx *m, char *stade)
 
 int	check_life(int life, t_mlx *m)
 {
-	if (life < 2 && m->key == D && m->tab[m->a][m->b + 1] == 'C')
+	if (life < 3 && m->key == D && m->tab[m->a][m->b + 1] == 'C')
 		life++;
-	else if (life < 2 && m->key == A && m->tab[m->a][m->b - 1] == 'C')
+	else if (life < 3 && m->key == A && m->tab[m->a][m->b - 1] == 'C')
 		life++;
-	else if (life < 2 && m->key == S && m->tab[m->a + 1][m->b] == 'C')
+	else if (life < 3 && m->key == S && m->tab[m->a + 1][m->b] == 'C')
 		life++;
-	else if (life < 2 && m->key == W && m->tab[m->a - 1][m->b] == 'C')
+	else if (life < 3 && m->key == W && m->tab[m->a - 1][m->b] == 'C')
 		life++;
 	return (life);
+}
+
+char	*stade_one(t_mlx *m)
+{
+	char *stade;
+
+	if (m->key == W)
+		stade = "./textures/bonus/S1PW.xpm";
+	else if (m->key == A)
+		stade = "./textures/bonus/S1PA.xpm";
+	else if (m->key == S)
+		stade = "./textures/bonus/S1PS.xpm";
+	else if (m->key == D)
+		stade = "./textures/bonus/S1PD.xpm";
+	return (stade);
+}
+
+char	*stade_two(t_mlx *m)
+{
+	char *stade;
+
+	if (m->key == W)
+		stade = "./textures/bonus/S2PW.xpm";
+	else if (m->key == A)
+		stade = "./textures/bonus/S2PA.xpm";
+	else if (m->key == S)
+		stade = "./textures/bonus/S2PS.xpm";
+	else if (m->key == D)
+		stade = "./textures/bonus/S2PD.xpm";
+	return (stade);
+}
+
+char	*stade_three(t_mlx *m)
+{
+	char *stade;
+
+	if (m->key == W)
+		stade = "./textures/bonus/S3PW.xpm";
+	else if (m->key == A)
+		stade = "./textures/bonus/S3PA.xpm";
+	else if (m->key == S)
+		stade = "./textures/bonus/S3PS.xpm";
+	else if (m->key == D)
+		stade = "./textures/bonus/S3PD.xpm";
+	return (stade);
 }
 
 void	move_player_bonus(t_mlx *m)
 {
 	char *stade;
-	static int life = 0;
+	static int life = 1;
 
 	life = check_life(life, m);
-	ft_printf("%d\n", life);
-	if (life == 0)
-		stade = "./textures/enemies1.xpm";
-	else if (life == 1)
-		stade = "./textures/enemies2.xpm";
+	if (life == 1)
+		stade = stade_one(m);
 	else if (life == 2)
-		stade = "./textures/test.xpm";
-	ft_printf("%s\n", stade);
+		stade = stade_two(m);
+	else if (life == 3)
+		stade = stade_three(m);
 	if (m->key == D || m->key == A)
 		move_right_or_left_bonus(m, stade);
 	else if (m->key == S || m->key == W)

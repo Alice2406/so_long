@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:54:22 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/07 16:47:51 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/08 14:54:13 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,12 +58,12 @@ void	move_back_or_front(t_mlx *m)
 		if (m->key == S)
 		{
 			m->a += 1;
-			m->img = mlx_xpm_file_to_image(m->mlx, P_S, &m->x, &m->y);
+			m->img = mlx_xpm_file_to_image(m->mlx, FIRE, &m->x, &m->y);
 		}
 		else
 		{
 			m->a -= 1;
-			m->img = mlx_xpm_file_to_image(m->mlx, P_W, &m->x, &m->y);
+			m->img = mlx_xpm_file_to_image(m->mlx, FIRE, &m->x, &m->y);
 		}
 		mlx_put_image_to_window(m->mlx, m->win, m->img, m->b * 32, m->a * 32);
 	}
@@ -82,12 +82,12 @@ void	move_right_or_left(t_mlx *m)
 		if (m->key == D)
 		{
 			m->b += 1;
-			m->img = mlx_xpm_file_to_image(m->mlx, P_D, &m->x, &m->y);
+			m->img = mlx_xpm_file_to_image(m->mlx, FIRE, &m->x, &m->y);
 		}
 		else
 		{
 			m->b -= 1;
-			m->img = mlx_xpm_file_to_image(m->mlx, P_A, &m->x, &m->y);
+			m->img = mlx_xpm_file_to_image(m->mlx, FIRE, &m->x, &m->y);
 		}
 		mlx_put_image_to_window(m->mlx, m->win, m->img, m->b * 32, m->a * 32);
 	}

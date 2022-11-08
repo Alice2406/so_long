@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:12:28 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/07 18:13:27 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/08 21:31:12 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	print_move(void)
 static int	putstr_key(int key, t_mlx *m)
 {
 	m->key = key;
-	if (key == 100 || key == 97 || key == 119 || key == 115)
+	if (key == A || key == W || key == S || key == D)
 	{
 		print_move();
 //		move_player(m);
@@ -73,7 +73,7 @@ void	show_map(t_mlx *m, char c)
 	else if (c == '0')
 		m->img = mlx_xpm_file_to_image(m->mlx, TERRAIN, &m->x, &m->y);
 	else if (c == 'P')
-		m->img = mlx_xpm_file_to_image(m->mlx, FIRE, &m->x, &m->y);
+		m->img = mlx_xpm_file_to_image(m->mlx, "./textures/bonus/S1PA.xpm", &m->x, &m->y);
 	else if (c == 'C')
 		m->img = mlx_xpm_file_to_image(m->mlx, BOMB, &m->x, &m->y);
 	else
