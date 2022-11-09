@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:14:15 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/08 16:42:23 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/09 16:48:12 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,13 @@ int	main(int ac, char **av)
 	tab = check_map(data, av);
 	find_error(data, tab);
 	ft_memset(&m, 0, sizeof(t_mlx));
-	set_map(&m, tab, data->s->height, data->s->width);
+	set_map(&m, tab, data->s->height, data->s->width, data);
 }
 
 //LEAKS
 //maintenir la touche -> continue d'avancer
 //https://harm-smits.github.io/42docs/libs/minilibx/events.html 
 //-> pour la continuite de la touche et pour esc/ croix rouge 
-//sprite flamme (player)
-//		-augmente avec les bombes (3 ou 4) 
 //sprite eau (ennemies)
 //		-bouge en a des endroits bien precis de la map
 //(de droite a gauche ou de haut en bas)
@@ -56,5 +54,3 @@ int	main(int ac, char **av)
 //LINUX
 //ESC	65307
 //RED_CROSS	33
-
-//error sur check wall -> a voir 

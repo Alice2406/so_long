@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:12:28 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/08 21:31:12 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/09 16:50:25 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ void	print_move(void)
 static int	putstr_key(int key, t_mlx *m)
 {
 	m->key = key;
+	if (key == ESC || key == RED_CROSS)
+		mlx_destroy_display();
 	if (key == A || key == W || key == S || key == D)
 	{
 		print_move();
@@ -32,7 +34,7 @@ static int	putstr_key(int key, t_mlx *m)
 	return (0);
 }
 
-void	set_map(t_mlx *m, char **tab, int x, int y)
+void	set_map(t_mlx *m, char **tab, int x, int y, t_data *d)
 {
 	m->tab = tab;
 	m->mlx = mlx_init();
@@ -40,6 +42,7 @@ void	set_map(t_mlx *m, char **tab, int x, int y)
 	item_location(m, tab);
 	player_place(m);
 	mlx_key_hook(m->win, putstr_key, m);
+	// way_ennemies(tab, d, m);
 	mlx_loop(m->mlx);
 }
 

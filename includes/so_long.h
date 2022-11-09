@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/08 14:55:43 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/09 14:27:24 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,25 +16,21 @@
 # include "libft.h"
 # include "mlx.h"
 
-//# define W	119
-//# define A	97
-//# define D	100
-//# define S	115
+# define W	119
+# define A	97
+# define D	100
+# define S	115
 
-# define W	13
-# define A	0
-# define D	2
-# define S	1
+// # define W	13
+// # define A	0
+// # define D	2
+// # define S	1
 
 # define TERRAIN	"./textures/terrain.xpm"
 # define FIRE	"./textures/fire.xpm"
 # define WALL	"./textures/wall.xpm"
 # define BOMB	"./textures/bomb.xpm"
 # define DOOR	"./textures/door.xpm"
-# define P_A "./textures/player_a.xpm"
-# define P_W "./textures/player_w.xpm"
-# define P_S "./textures/player_s.xpm"
-# define P_D "./textures/player_d.xpm"
 
 typedef struct s_map {
 	int	height;
@@ -113,7 +109,7 @@ int		print_error(char *msg, char **tab);
 
 void	item_location(t_mlx *m, char **tab);
 void	show_map(t_mlx *m, char c);
-void	set_map(t_mlx *m, char **tab, int x, int y);
+void	set_map(t_mlx *m, char **tab, int x, int y, t_data *d);
 void	move_player(t_mlx *m);
 void	player_place(t_mlx *m);
 int		check_tab(t_mlx *m);
@@ -127,5 +123,6 @@ void	move_player_bonus(t_mlx *m);
 int	check_life(int life, t_mlx *m);
 void	move_right_or_left_bonus(t_mlx *m, char *stade);
 void	move_back_or_front_bonus(t_mlx *m, char *stade);
+void	way_ennemies(char **tab, t_data *d, t_mlx *m);
 
 #endif
