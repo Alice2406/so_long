@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 15:46:30 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/05 12:11:46 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/10 16:43:03 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,7 @@ int	check_char(t_data *d, char **tab)
 	int		i;
 	int		j;
 
-	str = "01CPE";
+	str = "01CPEN"; //bonus ;)
 	i = 0;
 	while (tab[i])
 	{

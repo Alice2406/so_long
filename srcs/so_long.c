@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:14:15 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/09 16:48:12 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/10 12:28:31 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,3 +54,5 @@ int	main(int ac, char **av)
 //LINUX
 //ESC	65307
 //RED_CROSS	33
+
+//mlx_loop_hook can be useful 

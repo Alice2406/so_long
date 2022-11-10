@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/09 14:27:24 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/10 17:53:27 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@
 # define A	97
 # define D	100
 # define S	115
+# define ESC	65307
 
 // # define W	13
 // # define A	0
@@ -64,6 +65,7 @@ typedef struct s_mlx {
 	int		b;
 	int		key;
 	char	**tab;
+	int		enemyspeed;
 }				t_mlx;
 
 typedef struct s_way {
@@ -75,9 +77,6 @@ typedef struct s_way {
 	int		y;
 }				t_way;
 
-typedef struct s_bonus {
-	int	life;
-}				t_bonus;
 
 typedef struct s_data {
 	struct s_map	*s;
@@ -124,5 +123,8 @@ int	check_life(int life, t_mlx *m);
 void	move_right_or_left_bonus(t_mlx *m, char *stade);
 void	move_back_or_front_bonus(t_mlx *m, char *stade);
 void	way_ennemies(char **tab, t_data *d, t_mlx *m);
+int destroy_window(t_mlx *m);
+int	anim(t_bonus *game, t_data *d, t_mlx *m);
+
 
 #endif
