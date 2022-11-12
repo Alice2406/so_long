@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:12:28 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/12 10:39:12 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/12 14:23:32 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ void	set_map(t_mlx *m, char **tab, int x, int y, t_data *d)
 	player_place(m);
 	mlx_hook(m->win, 17, 1L << 2, destroy_window, &m);
 	mlx_key_hook(m->win, putstr_key, m);
-	mlx_loop_hook(m->mlx, anim, &m);
+//	mlx_loop_hook(m->mlx, anim, &m);
 	mlx_loop(m->mlx);
 }
 
@@ -78,6 +78,7 @@ void	show_map(t_mlx *m, char c)
 		m->img = mlx_xpm_file_to_image(m->mlx, TERRAIN, &m->x, &m->y);
 	else if (c == 'P')
 		m->img = mlx_xpm_file_to_image(m->mlx, "./textures/bonus/S1PA.xpm", &m->x, &m->y);
+	//	m->img = mlx_xpm_file_to_image(m->mlx, FIRE, &m->x, &m->y);
 	else if (c == 'C')
 		m->img = mlx_xpm_file_to_image(m->mlx, BOMB, &m->x, &m->y);
 	else if (c == 'N')
