@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/10 17:53:27 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/12 10:28:05 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,16 +16,17 @@
 # include "libft.h"
 # include "mlx.h"
 
-# define W	119
-# define A	97
-# define D	100
-# define S	115
-# define ESC	65307
+//# define W	119
+//# define A	97
+//# define D	100
+//# define S	115
+//# define ESC	65307
 
-// # define W	13
-// # define A	0
-// # define D	2
-// # define S	1
+ # define W	13
+ # define A	0
+ # define D	2
+ # define S	1
+ # define ESC	53
 
 # define TERRAIN	"./textures/terrain.xpm"
 # define FIRE	"./textures/fire.xpm"
@@ -124,7 +125,8 @@ void	move_right_or_left_bonus(t_mlx *m, char *stade);
 void	move_back_or_front_bonus(t_mlx *m, char *stade);
 void	way_ennemies(char **tab, t_data *d, t_mlx *m);
 int destroy_window(t_mlx *m);
-int	anim(t_bonus *game, t_data *d, t_mlx *m);
+void	move_anim(t_mlx *m);
+int	anim(t_mlx *m);
 
 
 #endif

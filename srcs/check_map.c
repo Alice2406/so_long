@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:50:56 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/09 13:07:07 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/12 10:36:06 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,8 +97,8 @@ char	**check_map(t_data *d, char **av)
 	check_char(d, tab);
 	check_wall(tab, d);
 	find_error(d, tab);
-	check_way(tab, d);
-	d->s->width = 0;
-	tab = read_map(d, av[1], tab);
+	//check_way(tab, d);
+	//d->s->width = 0;
+	//tab = read_map(d, av[1], tab);
 	return (tab);
 }
