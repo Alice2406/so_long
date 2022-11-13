@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:50:56 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/12 14:18:08 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/13 08:53:21 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ char	**read_map(t_data *d, char *av, char **tab)
 
 	fd = open(av, O_RDONLY);
 	str = get_next_line(fd);
+	if (!str)
+		return (NULL);
 	str2 = str;
 	while (str)
 	{
@@ -93,6 +95,8 @@ char	**check_map(t_data *d, char **av)
 	}
 	free(str);
 	tab = read_map(d, av[1], tab);
+	if (!tab)
+		print_error("The file is empty", NULL);
 	check_shape(d, tab);
 	check_char(d, tab);
 	check_wall(tab, d);
