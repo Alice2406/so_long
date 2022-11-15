@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 15:46:30 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/10 16:43:03 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:51:58 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,22 +45,22 @@ void	check_nb_item(t_data *d)
 		d->error->player = 1;
 }
 
-int	check_char(t_data *d, char **tab)
+int	check_char(t_data *d)
 {
 	char	*str;
 	int		i;
 	int		j;
 
-	str = "01CPEN"; //bonus ;)
+	str = "01CPEN";
 	i = 0;
-	while (tab[i])
+	while (d->m->tab[i])
 	{
 		j = 0;
-		while (tab[i][j])
+		while (d->m->tab[i][j])
 		{
-			if (ft_strchr2(str, tab[i][j]) == 0)
+			if (ft_strchr2(str, d->m->tab[i][j]) == 0)
 				d->error->char_map = 1;
-			count_char(d, ft_strchr2(str, tab[i][j]));
+			count_char(d, ft_strchr2(str, d->m->tab[i][j]));
 			j++;
 		}
 		i++;

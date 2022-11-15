@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/12 14:11:03 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/15 17:08:12 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@
 //  # define S	1
 //  # define ESC	53
 
-# define TERRAIN	"./textures/terrain.xpm"
+# define SOL	"./textures/terrain.xpm"
 # define FIRE	"./textures/fire.xpm"
 # define WALL	"./textures/wall.xpm"
 # define BOMB	"./textures/bomb.xpm"
@@ -58,10 +58,6 @@ typedef struct s_mlx {
 	void	*img;
 	int		x;
 	int		y;
-	// int		bits_per_pixel;
-	// int		endian;
-	// int		line_length;
-	// char	*addr;
 	int		a;
 	int		b;
 	int		key;
@@ -83,19 +79,20 @@ typedef struct s_data {
 	struct s_map	*s;
 	struct s_error	*error;
 	struct s_way	*w;
+	struct s_mlx	*m;
 }				t_data;
 
 //------CHECK_MAP--------//
 
-char	**read_map(t_data *d, char *av, char **tab);
-char	**check_map(t_data *d, char **av);
-int		check_shape(t_data *d, char **tab);
+void	read_map(t_data *d, char *av);
+void	check_map(t_data *d, char **av);
+int	check_shape(t_data *d);
 void	check_line(char *str, t_data *d);
-int		check_wall(char **tab, t_data *d);
+int	check_wall(t_data *d);
 char	ft_strchr2(const char *s, int c);
 void	count_char(t_data *d, char c);
 void	check_nb_item(t_data *d);
-int		check_char(t_data *d, char **tab);
+int	check_char(t_data *d);
 
 
 //------INIT_STRUC------//
@@ -104,29 +101,29 @@ t_data	*data_init(void);
 
 //--------ERROR---------//
 
-int		find_error(t_data *d, char **tab);
-int		print_error(char *msg, char **tab);
+int	find_error(t_data *d);
+int	print_error(char *msg, t_data *d);
 
-void	item_location(t_mlx *m, char **tab);
-void	show_map(t_mlx *m, char c);
-void	set_map(t_mlx *m, char **tab, int x, int y, t_data *d);
-void	move_player(t_mlx *m);
-void	player_place(t_mlx *m);
-int		check_tab(t_mlx *m);
+void	item_location(t_data *d);
+void	show_map(t_data *d, char c);
+void	set_map(int x, int y, t_data *d);
+void	move_player(t_data *d);
+void	player_place(t_data *d);
+int	check_tab(t_data *d);
 void	check_way(char **tab, t_data *d);
 void	flood_fill(t_data *d, int x, int y);
-void	print_img_move(t_mlx *m);
+void	print_img_move(t_data *d);
 
 //-------BONUS------//
 
-void	move_player_bonus(t_mlx *m);
-int	check_life(int life, t_mlx *m);
-void	move_right_or_left_bonus(t_mlx *m, char *stade);
-void	move_back_or_front_bonus(t_mlx *m, char *stade);
-void	way_ennemies(char **tab, t_data *d, t_mlx *m);
-int destroy_window(t_mlx *m);
-void	move_anim(t_mlx *m, char **tab);
-int	anim(t_mlx *m);
+void	move_player_bonus(t_data *d);
+int	check_life(int life, t_data *d);
+void	move_right_or_left_bonus(t_data *d, char *stade);
+void	move_back_or_front_bonus(t_data *d, char *stade);
+int destroy_window(t_data *d);
+
+int	anim(t_data *d);
+
 
 
 #endif

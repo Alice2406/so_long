@@ -6,56 +6,56 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:32:37 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/12 14:16:27 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/15 17:07:28 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
- void	move_4(int x, int y, t_mlx *m, char **tab)
+//  void	move_4(int x, int y, t_mlx *m, char **tab)
+//  {
+//  	int		i;
+//  	int		j;
+//  	void	*img;
+
+//  	while (tab[y][x + 1] != '1')
+//  	{
+//  		img = mlx_xpm_file_to_image(m->mlx, "./textures/terrain.xpm", &m->x, &m->y);
+//  		mlx_put_image_to_window(m->mlx, m->win, img, x * 32, y * 32);
+//  		tab[y][x] = '0';
+//  		tab[y][x -1] = 'N';
+//  		i = y * 32;
+//  		j = (x * 32) - 32;
+//  		img = mlx_xpm_file_to_image(m->mlx, "./textures/bonus/S2PA.xpm", &m->x, &m->y);
+//  		mlx_put_image_to_window(m->mlx, m->win, img, j * 32, i * 32);
+//  		x++;
+//  	}	
+//  }
+
+ void	move_2(int x, int y, t_data *d, char **tab)
  {
  	int		i;
  	int		j;
- 	void	*img;
 
- 	while (tab[y][x + 1] != '1')
- 	{
- 		img = mlx_xpm_file_to_image(m->mlx, "./textures/terrain.xpm", &m->x, &m->y);
- 		mlx_put_image_to_window(m->mlx, m->win, img, x * 32, y * 32);
- 		tab[y][x] = '0';
- 		tab[y][x -1] = 'N';
- 		i = y * 32;
- 		j = (x * 32) - 32;
- 		img = mlx_xpm_file_to_image(m->mlx, "./textures/bonus/S2PA.xpm", &m->x, &m->y);
- 		mlx_put_image_to_window(m->mlx, m->win, img, j * 32, i * 32);
- 		x++;
- 	}	
- }
-
- void	move_2(int x, int y, t_mlx *m, char **tab)
- {
- 	int		i;
- 	int		j;
- 	void	*img;
-
- 	if (x == m->a && y == m->b)
- 		ft_printf("touch by the ennemies\n");
+ 	// if (x == m->a && y == m->b)
+ 	// 	ft_printf("touch by the ennemies\n");
  	if (tab[y][x - 1] != '1')
  	{
- 		img = mlx_xpm_file_to_image(m->mlx, "./textures/terrain.xpm", &m->x, &m->y);
- 		mlx_put_image_to_window(m->mlx, m->win, img, x * 32, y * 32);
+		ft_printf("x = %d\ny = %d\n", x, y);
+		// m->img = mlx_xpm_file_to_image(m->mlx, TERRAIN, &m->x, &m->y);
+		// mlx_put_image_to_window(m->mlx, m->win, m->img, x * 32, y * 32);
  		tab[y][x] = '0';
  		tab[y][x -1] = 'N';
  		i = y * 32;
  		j = (x * 32) - 32;
- 		img = mlx_xpm_file_to_image(m->mlx, "./textures/bonus/S2PA.xpm", &m->x, &m->y);
- 		mlx_put_image_to_window(m->mlx, m->win, img, j * 32, i * 32);
+ 		// m->img = mlx_xpm_file_to_image(m->mlx, "./textures/bonus/S2PA.xpm", &m->x, &m->y);
+ 		// mlx_put_image_to_window(m->mlx, m->win, m->img, j * 32, i * 32);
  	}
- 	else if (tab[y][x + 1] == '0')
- 		move_4(x, y, m, tab);
+ 	// else if (tab[y][x + 1] == '0')
+ 	// 	move_4(x, y, m, tab);
  }
 
-void	move_anim(t_mlx *m, char **tab)
+void	move_anim(t_data *d, char **tab)
 {
 	int	i;
 	int	j;
@@ -67,7 +67,7 @@ void	move_anim(t_mlx *m, char **tab)
 		while (j < 33)
 		{
 			if (tab[i][j] == 'N')
-				move_2(j, i, m, tab);
+				move_2(j, i, d, tab);
 			j++;
 		}
 		i++;
@@ -94,16 +94,16 @@ char	**get_tab(char *av, char **tab)
 	return (free(str2), tab);
 }
 
-int	anim(t_mlx *m)
+int	anim(t_data *d)
 {
-	char **tab;
+	// char **tab;
 	
-	tab = get_tab("maps/base_bonus.ber", tab);
-	m->enemyspeed++;
-	if (m->enemyspeed >= 3000)
+	// tab = get_tab("maps/base_bonus.ber", tab);
+	d->m->enemyspeed++;
+	if (d->m->enemyspeed >= 3000)
 	{
-		move_anim(m, tab);
-		m->enemyspeed = 0;
+		move_anim(d, d->m->tab);
+		d->m->enemyspeed = 0;
 	}
 	return (0);
 }

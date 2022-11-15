@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 11:32:11 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/07 15:21:25 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:07:17 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,20 @@ void	way_init(t_data *d)
 	d->w->y = 0;
 }
 
+void	init_mlx(t_data *d)
+{
+	d->m->mlx = NULL;
+	d->m->win = NULL;
+	d->m->img = NULL;
+	d->m->x = 0;
+	d->m->y = 0;
+	d->m->a = 0;
+	d->m->b = 0;
+	d->m->key = 0;
+	d->m->tab = NULL;
+	d->m->enemyspeed = 0;
+}
+
 t_data	*data_init(void)
 {
 	t_data	*d;
@@ -52,10 +66,12 @@ t_data	*data_init(void)
 	d->s = malloc(sizeof(t_map));
 	d->error = malloc(sizeof(t_error));
 	d->w = malloc(sizeof(t_way));
-	if (!d->s || !d->error || !d->w)
+	d->m = malloc(sizeof(t_mlx));
+	if (!d->s || !d->error || !d->w || !d->m)
 		return (NULL);
 	map_init(d);
 	error_init(d);
 	way_init(d);
+	init_mlx(d);
 	return (d);
 }

@@ -6,13 +6,13 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:50:56 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/13 08:53:21 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/15 17:05:27 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-char	**read_map(t_data *d, char *av, char **tab)
+void	read_map(t_data *d, char *av)
 {
 	char	*str;
 	char	*str2;
@@ -21,7 +21,7 @@ char	**read_map(t_data *d, char *av, char **tab)
 	fd = open(av, O_RDONLY);
 	str = get_next_line(fd);
 	if (!str)
-		return (NULL);
+		return ;
 	str2 = str;
 	while (str)
 	{
@@ -30,12 +30,12 @@ char	**read_map(t_data *d, char *av, char **tab)
 		if (str)
 			str2 = ft_strjoin(str2, str);
 	}
-	tab = ft_split(str2, '\n');
+	d->m->tab = ft_split(str2, '\n');
 	close (fd);
-	return (free(str2), tab);
+	free(str2);
 }
 
-int	check_tab(t_mlx *m)
+int	check_tab(t_data *d)
 {
 	int		i;
 	int		j;
@@ -43,12 +43,12 @@ int	check_tab(t_mlx *m)
 
 	i = 0;
 	bomb = 0;
-	while (m->tab[i])
+	while (d->m->tab[i])
 	{
 		j = 0;
-		while (m->tab[i][j])
+		while (d->m->tab[i][j])
 		{
-			if (m->tab[i][j] == 'C')
+			if (d->m->tab[i][j] == 'C')
 				bomb++;
 			j++;
 		}
@@ -60,15 +60,15 @@ int	check_tab(t_mlx *m)
 		return (0);
 }
 
-int	check_shape(t_data *d, char **tab)
+int	check_shape(t_data *d)
 {
 	int	i;
 
 	i = 0;
-	d->s->height = ft_strlen(tab[0]);
-	while (tab[i])
+	d->s->height = ft_strlen(d->m->tab[0]);
+	while (d->m->tab[i])
 	{
-		if (d->s->height != ft_strlen(tab[i]))
+		if (d->s->height != ft_strlen(d->m->tab[i]))
 			d->error->shape = 1;
 		i++;
 	}
@@ -77,32 +77,30 @@ int	check_shape(t_data *d, char **tab)
 	return (1);
 }
 
-char	**check_map(t_data *d, char **av)
+void	check_map(t_data *d, char **av)
 {
 	int		fd;
 	char	*str;
-	char	**tab;
 
 	fd = open(av[1], O_RDONLY);
 	if (fd < 0)
-		print_error("The file doesn't exist", NULL);
+		print_error("The file doesn't exist", d);
 	close (fd);
 	str = ft_substr(av[1], ft_strlen(av[1]) - 4, 4);
 	if (ft_strncmp(str, ".ber", 4) != 0)
 	{
 		free(str);
-		print_error("The file is not a .ber", NULL);
+		print_error("The file is not a .ber", d);
 	}
 	free(str);
-	tab = read_map(d, av[1], tab);
-	if (!tab)
-		print_error("The file is empty", NULL);
-	check_shape(d, tab);
-	check_char(d, tab);
-	check_wall(tab, d);
-	find_error(d, tab);
-	check_way(tab, d);
+	read_map(d, av[1]);
+	if (!d->m->tab)
+		print_error("The file is empty", d);
+	check_shape(d);
+	check_char(d);
+	check_wall(d);
+	find_error(d);
+	check_way(d->m->tab, d);
 	d->s->width = 0;
-	tab = read_map(d, av[1], tab);
-	return (tab);
+	read_map(d, av[1]);
 }

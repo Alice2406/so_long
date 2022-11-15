@@ -6,41 +6,41 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 16:45:03 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/07 15:20:50 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:47:08 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-int	find_error(t_data *d, char **tab)
+int	find_error(t_data *d)
 {
 	if (d->error->char_map == 1)
-		print_error("There is a character not allowed", tab);
+		print_error("There is a character not allowed", d);
 	else if (d->error->shape == 1)
-		print_error("The map is not rectangular", tab);
+		print_error("The map is not rectangular", d);
 	else if (d->error->wall == 1)
-		print_error("The map is not surrounded by wall", tab);
+		print_error("The map is not surrounded by wall", d);
 	else if (d->error->exit == 1)
-		print_error("Nb of exit is incorrect", tab);
+		print_error("Nb of exit is incorrect", d);
 	else if (d->error->player == 1)
-		print_error("Nb of player is incorrect", tab);
+		print_error("Nb of player is incorrect", d);
 	else if (d->error->bomb == 1)
-		print_error("Nb of collective is incorrect", tab);
+		print_error("Nb of collective is incorrect", d);
 	else if (d->error->way == 1)
-		print_error("There is no way to solve the game", tab);
+		print_error("There is no way to solve the game", d);
 	return (1);
 }
 
-int	print_error(char *msg, char **tab)
+int	print_error(char *msg, t_data *d)
 {
 	int	i;
 
 	i = 0;
-	if (tab)
+	if (d->m->tab)
 	{
-		while (tab[i])
+		while (d->m->tab[i])
 		{
-			free (tab[i]);
+			free (d->m->tab[i]);
 			i++;
 		}
 	}

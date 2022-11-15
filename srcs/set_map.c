@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:12:28 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/12 14:23:32 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/15 17:06:06 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,70 +20,69 @@ void	print_move(void)
 	i++;
 }
 
-static int	putstr_key(int key, t_mlx *m)
+static int	putstr_key(int key, t_data *d)
 {
-	m->key = key;
+	d->m->key = key;
 	if (key == ESC)
-		destroy_window(m);
+		destroy_window(d);
 	if (key == A || key == W || key == S || key == D)
 	{
 		print_move();
-//		move_player(m);
-		move_player_bonus(m);
+//		move_player(d);
+		move_player_bonus(d);
 	}
 	return (0);
 }
 
-void	set_map(t_mlx *m, char **tab, int x, int y, t_data *d)
+void	set_map(int x, int y, t_data *d)
 {
-	m->tab = tab;
-	m->mlx = mlx_init();
-	m->win = mlx_new_window(m->mlx, (x * 32), (y * 32), "so_long");
-	item_location(m, tab);
-	player_place(m);
-	mlx_hook(m->win, 17, 1L << 2, destroy_window, &m);
-	mlx_key_hook(m->win, putstr_key, m);
-//	mlx_loop_hook(m->mlx, anim, &m);
-	mlx_loop(m->mlx);
+	d->m->mlx = mlx_init();
+	d->m->win = mlx_new_window(d->m->mlx, (x * 32), (y * 32), "so_long");
+	item_location(d);
+	player_place(d);
+	mlx_hook(d->m->win, 17, 1L << 2, destroy_window, &d);
+	mlx_key_hook(d->m->win, putstr_key, d);
+	mlx_loop_hook(d->m->mlx, anim, &d);
+	mlx_loop(d->m->mlx);
 }
 
-void	item_location(t_mlx *m, char **tab)
+void	item_location(t_data *d)
 {
 	int		i;
 	int		j;
 	char	c;
 
 	i = 0;
-	while (tab[i])
+	while (d->m->tab[i])
 	{
 		j = 0;
-		while (tab[i][j])
+		while (d->m->tab[i][j])
 		{
-			c = tab[i][j];
-			show_map(m, tab[i][j]);
-			m->a += 32;
+			c = d->m->tab[i][j];
+			show_map(d, d->m->tab[i][j]);
+			d->m->a += 32;
 			j++;
 		}
-		m->a = 0;
-		m->b += 32;
+		d->m->a = 0;
+		d->m->b += 32;
 		i++;
 	}
 }
 
-void	show_map(t_mlx *m, char c)
+void	show_map(t_data *d, char c)
 {
 	if (c == '1')
-		m->img = mlx_xpm_file_to_image(m->mlx, WALL, &m->x, &m->y);
+		d->m->img = mlx_xpm_file_to_image(d->m->mlx, WALL, &d->m->x, &d->m->y);
 	else if (c == '0')
-		m->img = mlx_xpm_file_to_image(m->mlx, TERRAIN, &m->x, &m->y);
+		d->m->img = mlx_xpm_file_to_image(d->m->mlx, SOL, &d->m->x, &d->m->y);
 	else if (c == 'P')
-		m->img = mlx_xpm_file_to_image(m->mlx, "./textures/bonus/S1PA.xpm", &m->x, &m->y);
-	//	m->img = mlx_xpm_file_to_image(m->mlx, FIRE, &m->x, &m->y);
+		d->m->img = mlx_xpm_file_to_image(d->m->mlx, "./textures/bonus/S1PA.xpm", &d->m->x, &d->m->y);
+//		d->m->img = mlx_xpm_file_to_image(d->m->mlx, FIRE, &d->m->x, &d->m->y);
 	else if (c == 'C')
-		m->img = mlx_xpm_file_to_image(m->mlx, BOMB, &m->x, &m->y);
+		d->m->img = mlx_xpm_file_to_image(d->m->mlx, BOMB, &d->m->x, &d->m->y);
 	else if (c == 'N')
-		m->img = mlx_xpm_file_to_image(m->mlx, "./textures/bonus/S2PA.xpm", &m->x, &m->y);
+		d->m->img = mlx_xpm_file_to_image(d->m->mlx, "./textures/bonus/S2PA.xpm", &d->m->x, &d->m->y);
 	else
-		m->img = mlx_xpm_file_to_image(m->mlx, DOOR, &m->x, &m->y);
-	mlx_put_image_to_window(m->mlx, m->win, m->img, m->a, m->b);
+		d->m->img = mlx_xpm_file_to_image(d->m->mlx, DOOR, &d->m->x, &d->m->y);
+	mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img, d->m->a, d->m->b);
 }

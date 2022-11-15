@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:14:15 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/12 13:56:06 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/15 16:55:37 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,16 +15,13 @@
 int	main(int ac, char **av)
 {
 	t_data	*data;
-	t_mlx	m;
-	char	**tab;
 
 	if (ac != 2)
 		print_error("Nb of arguments", NULL);
 	data = data_init();
-	tab = check_map(data, av);
-	find_error(data, tab);
-	ft_memset(&m, 0, sizeof(t_mlx));
-	set_map(&m, tab, data->s->height, data->s->width, data);
+	check_map(data, av);
+	find_error(data);
+	set_map(data->s->height, data->s->width, data);
 }
 
 //LEAKS
