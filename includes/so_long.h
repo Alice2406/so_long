@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/15 17:08:12 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:32:49 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,6 @@ typedef struct s_mlx {
 }				t_mlx;
 
 typedef struct s_way {
-	char	**map;
 	int		exit;
 	int		bomb;
 	int		tbomb;
@@ -121,6 +120,7 @@ int	check_life(int life, t_data *d);
 void	move_right_or_left_bonus(t_data *d, char *stade);
 void	move_back_or_front_bonus(t_data *d, char *stade);
 int destroy_window(t_data *d);
+static int nb_line_file(char *str);
 
 int	anim(t_data *d);
 

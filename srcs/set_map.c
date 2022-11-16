@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:12:28 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/15 17:06:06 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/16 16:03:06 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,12 +37,12 @@ static int	putstr_key(int key, t_data *d)
 void	set_map(int x, int y, t_data *d)
 {
 	d->m->mlx = mlx_init();
-	d->m->win = mlx_new_window(d->m->mlx, (x * 32), (y * 32), "so_long");
+	d->m->win = mlx_new_window(d->m->mlx, ((x - 1) * 32), (y * 32), "so_long");
 	item_location(d);
 	player_place(d);
 	mlx_hook(d->m->win, 17, 1L << 2, destroy_window, &d);
 	mlx_key_hook(d->m->win, putstr_key, d);
-	mlx_loop_hook(d->m->mlx, anim, &d);
+	mlx_loop_hook(d->m->mlx, anim, d);
 	mlx_loop(d->m->mlx);
 }
 
@@ -53,6 +53,8 @@ void	item_location(t_data *d)
 	char	c;
 
 	i = 0;
+	d->m->a = 0;
+	d->m->b = 0;
 	while (d->m->tab[i])
 	{
 		j = 0;

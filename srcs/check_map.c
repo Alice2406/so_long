@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:50:56 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/15 17:05:27 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/16 15:32:33 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,24 +15,38 @@
 void	read_map(t_data *d, char *av)
 {
 	char	*str;
-	char	*str2;
 	int		fd;
+	int		i;
 
+	i = 0;
 	fd = open(av, O_RDONLY);
+	d->m->tab = malloc (sizeof(char *) * (nb_line_file(av) + 1));
 	str = get_next_line(fd);
 	if (!str)
 		return ;
-	str2 = str;
 	while (str)
 	{
-		str = get_next_line(fd);
+		d->m->tab[i++] = str;
 		d->s->width++;
-		if (str)
-			str2 = ft_strjoin(str2, str);
+		str = get_next_line(fd);
 	}
-	d->m->tab = ft_split(str2, '\n');
+	d->m->tab[i] = NULL;
 	close (fd);
-	free(str2);
+}
+
+static int nb_line_file(char *str)
+{
+	int fd;
+	char c;
+	int len;
+
+	len = 0;
+	fd = open(str, O_RDONLY);
+	while(read(fd, &c, 1) > 0)
+		if (c == '\n')
+			len++;
+	close (fd);
+	return (len + 1);
 }
 
 int	check_tab(t_data *d)
