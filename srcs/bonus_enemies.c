@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:32:37 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/17 15:58:09 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/17 17:23:12 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	ft_way(t_data *d, int x, int y)
 	if (d->m->nb_way == 1)
 		one_way(d, x, y);
 	else 
-		ft_printf("IDGAF\n");
+		ft_printf("x = %d\ny = %d\nx_enemy= %d\ny_enemy = %d\n", d->m->a, d->m->b, x, y);
 }
 
 

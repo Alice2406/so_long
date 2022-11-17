@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 13:15:07 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/17 15:54:26 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/17 17:28:23 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,3 +83,6 @@ void	one_way(t_data *d, int x, int y)
 	if (d->m->est == 1)
 		move_est(d, x, y);
 }
+
+//mettre le comportement a avoir si l'ennemi va sur un collective l'exit 
+//faire perdre de la vie au player si l'ennemi et le player se rencontre -> mettre le player au stade inferieur et si playeur boule -> mort du perso !
