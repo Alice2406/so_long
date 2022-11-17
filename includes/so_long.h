@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/16 15:32:49 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/17 15:57:14 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,6 +63,11 @@ typedef struct s_mlx {
 	int		key;
 	char	**tab;
 	int		enemyspeed;
+	int		north;
+	int		south;
+	int		west;
+	int		est;
+	int		nb_way;
 }				t_mlx;
 
 typedef struct s_way {
@@ -72,7 +77,6 @@ typedef struct s_way {
 	int		x;
 	int		y;
 }				t_way;
-
 
 typedef struct s_data {
 	struct s_map	*s;
@@ -123,7 +127,8 @@ int destroy_window(t_data *d);
 static int nb_line_file(char *str);
 
 int	anim(t_data *d);
-
+void	one_way(t_data *d, int x, int y);
+void	ft_way(t_data *d, int x, int y);
 
 
 #endif

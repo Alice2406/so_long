@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 11:32:11 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/16 15:36:56 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/17 15:40:08 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,11 @@ void	init_mlx(t_data *d)
 	d->m->key = 0;
 	d->m->tab = NULL;
 	d->m->enemyspeed = 0;
+	d->m->north = 0;
+	d->m->south = 0;
+	d->m->west = 0;
+	d->m->est = 0;
+	d->m->nb_way = 0;
 }
 
 t_data	*data_init(void)

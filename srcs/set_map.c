@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:12:28 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/16 16:03:06 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/17 14:56:10 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	show_map(t_data *d, char c)
 	else if (c == 'C')
 		d->m->img = mlx_xpm_file_to_image(d->m->mlx, BOMB, &d->m->x, &d->m->y);
 	else if (c == 'N')
-		d->m->img = mlx_xpm_file_to_image(d->m->mlx, "./textures/bonus/S2PA.xpm", &d->m->x, &d->m->y);
+		d->m->img = mlx_xpm_file_to_image(d->m->mlx, "./textures/bonus/ESD.xpm", &d->m->x, &d->m->y);
 	else
 		d->m->img = mlx_xpm_file_to_image(d->m->mlx, DOOR, &d->m->x, &d->m->y);
 	mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img, d->m->a, d->m->b);
