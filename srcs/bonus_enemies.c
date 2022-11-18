@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:32:37 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/17 17:23:12 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/18 16:49:58 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,22 +55,22 @@
 
 void	nb_way(t_data *d, int x, int y)
 {
-	if (d->m->tab[y][x - 1] != '1')
+	if (d->m->tab[x][y - 1] != '1')
 	{
 		d->m->west = 1;
 		d->m->nb_way++;
 	}
-	if (d->m->tab[y][x + 1] != '1')
+	if (d->m->tab[x][y + 1] != '1')
 	{
-		d->m->est = 1;
+		d->m->east = 1;
 		d->m->nb_way++;
 	}
-	if (d->m->tab[y + 1][x] != '1')
+	if (d->m->tab[x + 1][y] != '1')
 	{
 		d->m->south = 1;
 		d->m->nb_way++;
 	}
-	if (d->m->tab[y - 1][x] != '1')
+	if (d->m->tab[x - 1][y] != '1')
 	{
 		d->m->north = 1;
 		d->m->nb_way++;
@@ -82,10 +82,24 @@ void	ft_way(t_data *d, int x, int y)
 {
 	if (d->m->nb_way == 1)
 		one_way(d, x, y);
-	else 
-		ft_printf("x = %d\ny = %d\nx_enemy= %d\ny_enemy = %d\n", d->m->a, d->m->b, x, y);
+	else if (d->m->nb_way == 2)
+		two_ways(d, x, y);
+	else if (d->m->nb_way == 3)
+		three_ways(d, x, y);
+	// else if (d->m->nb_way == 4)
+	// 	four_ways(d, x, y);
+	else
+		ft_printf("error nb_way\n");
+//		ft_printf("x = %d\ny = %d\nx_enemy= %d\ny_enemy = %d\n", d->m->a, d->m->b, x, y);
 }
-
+void	re_init_struct(t_data *d)
+{
+	d->m->nb_way = 0;
+	d->m->north = 0;
+	d->m->south = 0;
+	d->m->east = 0;
+	d->m->west = 0;
+}
 
 void	move_anim(t_data *d)
 {
@@ -101,7 +115,8 @@ void	move_anim(t_data *d)
 			if (d->m->tab[i][j] == 'N')
 			{
 //				move_2(j, i, d);
-				nb_way(d, j, i);
+				re_init_struct(d);
+				nb_way(d, i, j);
 			}
 			j++;
 		}

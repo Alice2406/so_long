@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 11:32:11 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/17 15:40:08 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/18 12:09:20 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ void	init_mlx(t_data *d)
 	d->m->north = 0;
 	d->m->south = 0;
 	d->m->west = 0;
-	d->m->est = 0;
+	d->m->east = 0;
 	d->m->nb_way = 0;
 }
 

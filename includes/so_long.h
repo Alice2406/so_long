@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/17 15:57:14 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/18 16:24:42 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ typedef struct s_mlx {
 	int		north;
 	int		south;
 	int		west;
-	int		est;
+	int		east;
 	int		nb_way;
 }				t_mlx;
 
@@ -129,6 +129,19 @@ static int nb_line_file(char *str);
 int	anim(t_data *d);
 void	one_way(t_data *d, int x, int y);
 void	ft_way(t_data *d, int x, int y);
+void two_ways(t_data *d, int x, int y);
+void move_east(t_data *d, int x, int y);
+void	move_west(t_data *d, int x, int y);
+void	move_south(t_data *d, int x, int y);
+void	move_north(t_data *d, int x, int y);
+void three_ways(t_data *d, int x, int y);
+void	ns_or_we_comp(t_data *d, int x, int y);
+void	nw_comp(t_data *d, int x, int y);
+void	ne_comp(t_data *d, int x, int y);
+void	sw_comp(t_data *d, int x, int y);
+void	se_comp(t_data *d, int x, int y);
+void	nsw_or_nse_comp(t_data *d, int x, int y);
+void	wes_or_wen_comp(t_data *d, int x, int y);
 
 
 #endif
