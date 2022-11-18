@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/18 16:05:41 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/18 16:49:50 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/18 17:33:10 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,14 @@ void	three_ways(t_data *d, int x, int y)
 		wes_or_wen_comp(d, x, y);
 }
 
-// void	four_ways(t_data *d, int x, int y)
-// {
-	
-// }
+void	four_ways(t_data *d, int x, int y)
+{
+	if (d->m->a >= x && y > d->m->b)
+		move_west(d, x, y);
+	else if (d->m->a <= x && y < d->m->b)
+		move_east(d, x, y);
+	if (d->m->b >= y && x < d->m->a)
+		move_south(d, x, y);
+	else if (d->m->b <= y && x > d->m->a)
+		move_north(d, x, y);
+}

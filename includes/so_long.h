@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/18 16:24:42 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/18 17:33:50 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,6 +142,7 @@ void	sw_comp(t_data *d, int x, int y);
 void	se_comp(t_data *d, int x, int y);
 void	nsw_or_nse_comp(t_data *d, int x, int y);
 void	wes_or_wen_comp(t_data *d, int x, int y);
+void	four_ways(t_data *d, int x, int y);
 
 
 #endif

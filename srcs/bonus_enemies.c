@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:32:37 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/18 16:49:58 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/18 17:33:34 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,12 +86,13 @@ void	ft_way(t_data *d, int x, int y)
 		two_ways(d, x, y);
 	else if (d->m->nb_way == 3)
 		three_ways(d, x, y);
-	// else if (d->m->nb_way == 4)
-	// 	four_ways(d, x, y);
+	else if (d->m->nb_way == 4)
+		four_ways(d, x, y);
 	else
 		ft_printf("error nb_way\n");
 //		ft_printf("x = %d\ny = %d\nx_enemy= %d\ny_enemy = %d\n", d->m->a, d->m->b, x, y);
 }
+
 void	re_init_struct(t_data *d)
 {
 	d->m->nb_way = 0;
