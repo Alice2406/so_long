@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:14:15 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/15 16:55:37 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:52:35 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,18 +25,14 @@ int	main(int ac, char **av)
 }
 
 //LEAKS
+//separer les bonus de la version normale 
 //maintenir la touche -> continue d'avancer
+//gerer le segfaut de la croix 
 //https://harm-smits.github.io/42docs/libs/minilibx/events.html 
-//-> pour la continuite de la touche et pour esc/ croix rouge 
-//sprite eau (ennemies)
-//		-bouge en a des endroits bien precis de la map
-//(de droite a gauche ou de haut en bas)
-//		-fais retrecir la flamme si contact
-//compteur de mouvement en bas de l'ecran 
-//nom de mon so long en bas de l'ecran 
-
-//regarder comment on fais les mouvements 
-//comment on peut afficher un compteur sur l'ecran 
-//gerer la croix et esc 
-//faire un logo so long
-//telecharger mes sprites
+//-> pour la continuite de la touche
+//gerer les problemes avec mon ennemie : ne bouge parfois pas dans la map pacman 
+//gerer le contact entre mon ennemie et mon player -> perte de vie -> voir le probleme
+//probleme -> teleportation de mon ennemie inexplicable  
+//si tu as le temps :  representer la vie par des sprites <heart>
+//si tu as le temps encore : mettre un logo a ton so_long
+//mettre un compteur de move sur ta fenetre (voir le so long pacman)

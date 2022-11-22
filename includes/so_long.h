@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/18 17:33:50 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:13:37 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ typedef struct s_mlx {
 	int		west;
 	int		east;
 	int		nb_way;
+	int		life;
 }				t_mlx;
 
 typedef struct s_way {
@@ -120,7 +121,7 @@ void	print_img_move(t_data *d);
 //-------BONUS------//
 
 void	move_player_bonus(t_data *d);
-int	check_life(int life, t_data *d);
+void	check_life(t_data *d);
 void	move_right_or_left_bonus(t_data *d, char *stade);
 void	move_back_or_front_bonus(t_data *d, char *stade);
 int destroy_window(t_data *d);

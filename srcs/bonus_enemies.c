@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:32:37 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/18 17:33:34 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:38:42 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,8 +88,6 @@ void	ft_way(t_data *d, int x, int y)
 		three_ways(d, x, y);
 	else if (d->m->nb_way == 4)
 		four_ways(d, x, y);
-	else
-		ft_printf("error nb_way\n");
 //		ft_printf("x = %d\ny = %d\nx_enemy= %d\ny_enemy = %d\n", d->m->a, d->m->b, x, y);
 }
 
@@ -128,7 +126,7 @@ void	move_anim(t_data *d)
 int	anim(t_data *d)
 {
 	d->m->enemyspeed++;
-	if (d->m->enemyspeed >= 10000)
+	if (d->m->enemyspeed >= 21000)
 	{
 		move_anim(d);
 		d->m->enemyspeed = 0;

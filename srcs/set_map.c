@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:12:28 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/17 14:56:10 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/22 16:06:38 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,6 +36,8 @@ static int	putstr_key(int key, t_data *d)
 
 void	set_map(int x, int y, t_data *d)
 {
+	d->s->bomb = 0;
+	d->s->door = 0;
 	d->m->mlx = mlx_init();
 	d->m->win = mlx_new_window(d->m->mlx, ((x - 1) * 32), (y * 32), "so_long");
 	item_location(d);

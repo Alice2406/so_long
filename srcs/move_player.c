@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 15:54:22 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/16 15:59:43 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/22 17:55:26 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,10 @@ void	move_back_or_front(t_data *d)
 	if (d->m->tab[d->m->a][d->m->b] == 'C')
 		d->m->tab[d->m->a][d->m->b] = '0';
 	if (d->m->tab[d->m->a][d->m->b] == 'E' && check_tab(d) == 0)
+	{
+		ft_printf("WIIIIIIIINNER\n");
 		exit(0);
+	}
 }
 
 void	move_right_or_left(t_data *d)
@@ -94,7 +97,10 @@ void	move_right_or_left(t_data *d)
 	if (d->m->tab[d->m->a][d->m->b] == 'C')
 		d->m->tab[d->m->a][d->m->b] = '0';
 	if (d->m->tab[d->m->a][d->m->b] == 'E' && check_tab(d) == 0)
+	{
+		ft_printf("WIIIIIIIINNER\n");
 		exit(0);
+	}
 }
 
 void	move_player(t_data *d)
