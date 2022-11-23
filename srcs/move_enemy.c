@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 13:15:07 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/22 17:55:18 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/23 16:02:51 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	move_north(t_data *d, int x, int y)
 	d->m->tab[x - 1][y] = 'N';
 	i = (x * 32) - 32;
 	j = y * 32;
-	d->m->img = mlx_xpm_file_to_image(d->m->mlx, "./textures/bonus/ESD.xpm", &d->m->x, &d->m->y);
+	d->m->img = mlx_xpm_file_to_image(d->m->mlx, "./textures/bonus/ESW.xpm", &d->m->x, &d->m->y);
 	mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img, j, i);
 	if (d->m->a == x && d->m->b == y)
 		d->m->life--;
@@ -80,7 +80,7 @@ void	move_south(t_data *d, int x, int y)
 	d->m->tab[x + 1][y] = 'N';
 	i = (x * 32) + 32;
 	j = y * 32;
-	d->m->img = mlx_xpm_file_to_image(d->m->mlx, "./textures/bonus/ESD.xpm", &d->m->x, &d->m->y);
+	d->m->img = mlx_xpm_file_to_image(d->m->mlx, "./textures/bonus/ESS.xpm", &d->m->x, &d->m->y);
 	mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img, j, i);
 	if (d->m->a == x && d->m->b == y)
 		d->m->life--;
@@ -142,7 +142,7 @@ void move_east(t_data *d, int x, int y)
 	d->m->tab[x][y + 1] = 'N';
 	i = x * 32;
 	j = (y * 32) + 32;
-	d->m->img = mlx_xpm_file_to_image(d->m->mlx, "./textures/bonus/ESA.xpm", &d->m->x, &d->m->y);
+	d->m->img = mlx_xpm_file_to_image(d->m->mlx, "./textures/bonus/ESD.xpm", &d->m->x, &d->m->y);
 	mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img, j, i);
 	if (d->m->a == x && d->m->b == y)
 		d->m->life--;
