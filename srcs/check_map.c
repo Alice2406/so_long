@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:50:56 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/18 12:29:03 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:36:50 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void	read_map(t_data *d, char *av)
 
 	i = 0;
 	fd = open(av, O_RDONLY);
+	if (nb_line_file(av) == 0)
+		return ;
 	d->m->tab = malloc (sizeof(char *) * (nb_line_file(av) + 1));
 	str = get_next_line(fd);
 	if (!str)
@@ -42,6 +44,8 @@ static int nb_line_file(char *str)
 
 	len = 0;
 	fd = open(str, O_RDONLY);
+	if (read(fd, &c, 1) == 0)
+		return (0);
 	while(read(fd, &c, 1) > 0)
 		if (c == '\n')
 			len++;
@@ -86,7 +90,7 @@ int	check_shape(t_data *d)
 			d->error->shape = 1;
 		i++;
 	}
-	if (i == d->s->height || i <= 2 || d->s->height <= 2)
+	if (i == d->s->height || i <= 2 || d->s->height <= 3)
 		d->error->shape = 1;
 	return (1);
 }

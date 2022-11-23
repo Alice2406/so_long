@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:14:15 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/22 17:52:35 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:52:27 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,15 +24,17 @@ int	main(int ac, char **av)
 	set_map(data->s->height, data->s->width, data);
 }
 
+//PARTIE OBLIGATOIRE
 //LEAKS
-//separer les bonus de la version normale 
-//maintenir la touche -> continue d'avancer
-//gerer le segfaut de la croix 
-//https://harm-smits.github.io/42docs/libs/minilibx/events.html 
-//-> pour la continuite de la touche
+//separer les bonus de la version normale
+//gerer le segfaut de la croix
+//BONUS
 //gerer les problemes avec mon ennemie : ne bouge parfois pas dans la map pacman 
-//gerer le contact entre mon ennemie et mon player -> perte de vie -> voir le probleme
-//probleme -> teleportation de mon ennemie inexplicable  
+//probleme enemie -> teleportation de mon ennemie inexplicable  ????
 //si tu as le temps :  representer la vie par des sprites <heart>
-//si tu as le temps encore : mettre un logo a ton so_long
 //mettre un compteur de move sur ta fenetre (voir le so long pacman)
+
+
+//regarder code pour separer bonus de version normale
+//telecharger mes sprites <heart> et ennemie up & down
+//regarder comment mettre le compteur + sprite numero

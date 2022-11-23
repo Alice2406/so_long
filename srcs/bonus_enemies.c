@@ -6,52 +6,11 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:32:37 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/22 17:38:42 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:08:26 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
-
-// void	move_4(int x, int y, t_data *d)
-// {
-//  	int		i;
-//  	int		j;
-
-//  	while (d->m->tab[y][x + 1] != '1')
-//  	{
-//  		d->m->img = mlx_xpm_file_to_image(d->m->mlx, SOL, &d->m->x, &d->m->y);
-//  		mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img, x * 32, y * 32);
-//  		d->m->tab[y][x] = '0';
-//  		d->m->tab[y][x + 1] = 'N';
-//  		i = y * 32;
-//  		j = (x * 32) + 32;
-//  		d->m->img = mlx_xpm_file_to_image(d->m->mlx, "./textures/bonus/ESD.xpm", &d->m->x, &d->m->y);
-//  		mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img, j, i);
-// 			x++;
-//  	}
-// }
-
-// void	move_2(int x, int y, t_data *d)
-// {
-//  	int		i;
-//  	int		j;
-
-//  	if (x == d->m->a && y == d->m->b)
-//  		ft_printf("touch by the ennemies\n");
-//  	if (d->m->tab[y][x - 1] != '1')
-//  	{
-// 		d->m->img = mlx_xpm_file_to_image(d->m->mlx, SOL, &d->m->x, &d->m->y);
-// 		mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img, x * 32, y * 32);
-//  		d->m->tab[y][x] = '0';
-//  		d->m->tab[y][x - 1] = 'N';
-//  		i = y * 32;
-//  		j = (x * 32) - 32;
-//  		d->m->img = mlx_xpm_file_to_image(d->m->mlx, "./textures/bonus/ESA.xpm", &d->m->x, &d->m->y);
-//  		mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img, j, i);
-//  	}
-//  	else if (d->m->tab[y][x + 1] == '0')
-//  		move_4(x, y, d);
-// }
 
 void	nb_way(t_data *d, int x, int y)
 {
@@ -88,7 +47,6 @@ void	ft_way(t_data *d, int x, int y)
 		three_ways(d, x, y);
 	else if (d->m->nb_way == 4)
 		four_ways(d, x, y);
-//		ft_printf("x = %d\ny = %d\nx_enemy= %d\ny_enemy = %d\n", d->m->a, d->m->b, x, y);
 }
 
 void	re_init_struct(t_data *d)
@@ -113,7 +71,6 @@ void	move_anim(t_data *d)
 		{
 			if (d->m->tab[i][j] == 'N')
 			{
-//				move_2(j, i, d);
 				re_init_struct(d);
 				nb_way(d, i, j);
 			}
@@ -126,7 +83,7 @@ void	move_anim(t_data *d)
 int	anim(t_data *d)
 {
 	d->m->enemyspeed++;
-	if (d->m->enemyspeed >= 21000)
+	if (d->m->enemyspeed >= 20000)
 	{
 		move_anim(d);
 		d->m->enemyspeed = 0;

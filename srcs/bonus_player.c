@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:55:08 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/22 17:12:55 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/23 12:31:15 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,13 +62,13 @@ void	move_right_or_left_bonus(t_data *d, char *stade)
 
 void	check_life(t_data *d)
 {
-	if (d->m->life < 3 && d->m->key == D && d->m->tab[d->m->a][d->m->b + 1] == 'C')
+	if (d->m->life < 6 && d->m->key == D && d->m->tab[d->m->a][d->m->b + 1] == 'C')
 		d->m->life++;
-	else if (d->m->life < 3 && d->m->key == A && d->m->tab[d->m->a][d->m->b - 1] == 'C')
+	else if (d->m->life < 6 && d->m->key == A && d->m->tab[d->m->a][d->m->b - 1] == 'C')
 		d->m->life++;
-	else if (d->m->life < 3 && d->m->key == S && d->m->tab[d->m->a + 1][d->m->b] == 'C')
+	else if (d->m->life < 6 && d->m->key == S && d->m->tab[d->m->a + 1][d->m->b] == 'C')
 		d->m->life++;
-	else if (d->m->life < 3 && d->m->key == W && d->m->tab[d->m->a - 1][d->m->b] == 'C')
+	else if (d->m->life < 6 && d->m->key == W && d->m->tab[d->m->a - 1][d->m->b] == 'C')
 		d->m->life++;
 }
 
@@ -122,11 +122,11 @@ void	move_player_bonus(t_data *d)
 	char *stade;
 
 	check_life(d);
-	if (d->m->life == 1)
+	if (d->m->life == 1 || d->m->life == 2)
 		stade = stade_one(d);
-	else if (d->m->life == 2)
+	else if (d->m->life == 3 || d->m->life == 4)
 		stade = stade_two(d);
-	else if (d->m->life == 3)
+	else if (d->m->life == 5 || d->m->life == 6)
 		stade = stade_three(d);
 	if (d->m->key == D || d->m->key == A)
 		move_right_or_left_bonus(d, stade);

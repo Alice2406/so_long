@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/22 17:13:37 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:14:35 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,6 @@
 # define D	100
 # define S	115
 # define ESC	65307
-
-//  # define W	13
-//  # define A	0
-//  # define D	2
-//  # define S	1
-//  # define ESC	53
 
 # define SOL	"./textures/terrain.xpm"
 # define FIRE	"./textures/fire.xpm"
@@ -69,6 +63,7 @@ typedef struct s_mlx {
 	int		east;
 	int		nb_way;
 	int		life;
+	int		enemy;
 }				t_mlx;
 
 typedef struct s_way {

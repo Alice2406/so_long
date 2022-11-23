@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:12:28 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/22 16:06:38 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/23 13:15:08 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,8 +43,9 @@ void	set_map(int x, int y, t_data *d)
 	item_location(d);
 	player_place(d);
 	mlx_hook(d->m->win, 17, 1L << 2, destroy_window, &d);
-	mlx_key_hook(d->m->win, putstr_key, d);
-	mlx_loop_hook(d->m->mlx, anim, d);
+	mlx_hook(d->m->win, 2, 1L<<0, putstr_key, d);
+	if (d->m->enemy == 1 )
+		mlx_loop_hook(d->m->mlx, anim, d);
 	mlx_loop(d->m->mlx);
 }
 
@@ -85,7 +86,10 @@ void	show_map(t_data *d, char c)
 	else if (c == 'C')
 		d->m->img = mlx_xpm_file_to_image(d->m->mlx, BOMB, &d->m->x, &d->m->y);
 	else if (c == 'N')
+	{
 		d->m->img = mlx_xpm_file_to_image(d->m->mlx, "./textures/bonus/ESD.xpm", &d->m->x, &d->m->y);
+		d->m->enemy++;
+	}
 	else
 		d->m->img = mlx_xpm_file_to_image(d->m->mlx, DOOR, &d->m->x, &d->m->y);
 	mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img, d->m->a, d->m->b);
