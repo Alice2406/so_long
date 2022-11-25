@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/23 13:14:35 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/25 15:47:35 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,18 @@
 # define WALL	"./textures/wall.xpm"
 # define BOMB	"./textures/bomb.xpm"
 # define DOOR	"./textures/door.xpm"
+# define ESD	"./textures/bonus/ESD.xpm"
+# define ESA	"./textures/bonus/ESA.xpm"
+# define ESS	"./textures/bonus/ESS.xpm"
+# define ESW	"./textures/bonus/ESW.xpm"
+# define PBON	"./textures/bonus/S1PA.xpm"
+# define HEART_F	"./textures/bonus/full_heart.xpm"
+# define HEART_E	"./textures/bonus/empty_heart.xpm"
+
+// #ifndef BONUS
+// # define BONUS 1
+// #endif
+// # define BONUS 0
 
 typedef struct s_map {
 	int	height;
@@ -139,6 +151,11 @@ void	se_comp(t_data *d, int x, int y);
 void	nsw_or_nse_comp(t_data *d, int x, int y);
 void	wes_or_wen_comp(t_data *d, int x, int y);
 void	four_ways(t_data *d, int x, int y);
+
+char	*stade_one(t_data *d);
+char	*stade_two(t_data *d);
+char	*stade_three(t_data *d);
+void	show_heart(int i, t_data *d);
 
 
 #endif

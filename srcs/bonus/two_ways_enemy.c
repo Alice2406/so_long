@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 16:06:55 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/22 16:47:41 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/25 13:42:02 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,14 +16,14 @@ void	ns_or_we_comp(t_data *d, int x, int y)
 {
 	if (d->m->north == 1 && d->m->south == 1)
 	{
-		if(d->m->a > x)
+		if (d->m->a > x)
 			move_south(d, x, y);
 		else
 			move_north(d, x, y);
 	}
-	else if (d->m->west == 1 && d->m->east == 1)
+	else
 	{
-		if(d->m->b > y)
+		if (d->m->b > y)
 			move_east(d, x, y);
 		else
 			move_west(d, x, y);

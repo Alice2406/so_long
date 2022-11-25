@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:32:37 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/23 13:08:26 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/25 11:14:39 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,13 +39,15 @@ void	nb_way(t_data *d, int x, int y)
 
 void	ft_way(t_data *d, int x, int y)
 {
-	if (d->m->nb_way == 1)
+	if (d->m->nb_way == 0)
+		return ;
+	else if (d->m->nb_way == 1)
 		one_way(d, x, y);
 	else if (d->m->nb_way == 2)
 		two_ways(d, x, y);
 	else if (d->m->nb_way == 3)
 		three_ways(d, x, y);
-	else if (d->m->nb_way == 4)
+	else
 		four_ways(d, x, y);
 }
 

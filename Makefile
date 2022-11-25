@@ -6,7 +6,7 @@
 #    By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/11 16:25:30 by aniezgod          #+#    #+#              #
-#    Updated: 2022/11/23 15:31:12 by aniezgod         ###   ########.fr        #
+#    Updated: 2022/11/25 14:55:42 by aniezgod         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,25 +25,27 @@ CYAN = \e[0;36m
 WHITE = \e[0;37m
 
 SRCS =	./srcs/so_long.c \
-		./srcs/check_map.c \
-		./srcs/ft_error.c \
-		./srcs/check_char_map.c \
-		./srcs/check_wall.c \
-		./srcs/set_map.c \
-		./srcs/move_player.c \
-		./srcs/check_way.c \
-		./srcs/init_struct.c \
-		./srcs/bonus_player.c \
-		./srcs/bonus_enemies.c \
-		./srcs/destroy.c \
-		./srcs/move_enemy.c \
-		./srcs/two_ways_enemy.c \
-		./srcs/enemy_way.c \
-		./srcs/three_ways_enemy.c \
+		./srcs/parsing/check_map.c \
+		./srcs/destroy_and_free/ft_error.c \
+		./srcs/parsing/check_char_map.c \
+		./srcs/parsing/check_wall.c \
+		./srcs/map_and_player/set_map.c \
+		./srcs/map_and_player/move_player.c \
+		./srcs/parsing/check_way.c \
+		./srcs/parsing/init_struct.c \
+		./srcs/bonus/bonus_player.c \
+		./srcs/bonus/bonus_enemies.c \
+		./srcs/destroy_and_free/destroy.c \
+		./srcs/bonus/move_enemy.c \
+		./srcs/bonus/two_ways_enemy.c \
+		./srcs/bonus/enemy_way.c \
+		./srcs/bonus/three_ways_enemy.c \
+		./srcs/bonus/bonus_player2.c \
 
 OBJS = ${SRCS:.c=.o}
 
-NAME = so_long
+NAME := so_long
+BONUS := so_long
 CC = clang
 CFLAGS = -Wall -Wextra -Werror
 SYSTEM = $(shell uname)
@@ -83,6 +85,19 @@ $(NAME): $(OBJS)
 			@printf "${BOLD}║                                   ${PURPLE}${NAME}                                  ${WHITE}║\n"
 			@printf "${BOLD}╚════════════════════════════════════════════════════════════════════════════╝\n"
 
+bonus: ${OBJS} ${SRCS}
+			@printf "[${HEADER_MESSAGE} with bonus]\n"
+			@printf "${WHITE}${BOLD}╔════════════════════════════════════════════════════════════════════════════╗\n"
+			@printf "${BOLD}║                              .: COMPILATION :.                             ║\n"
+			@printf "${BOLD}╚════════════════════════════════════════════════════════════════════════════╝\n"
+			@${MAKE} -C ./libft >/dev/null
+			@printf "${BOLD}║                                    ${PURPLE}libft                                   ${WHITE}║\n"
+			@${MAKE} -C ${MLX_USED} >/dev/null 2>&1
+			@printf "${BOLD}║                                     ${PURPLE}mlx                                    ${WHITE}║\n"
+			@${CC} -DBONUS ${FLAGS} ${INCS} ${MLX_FLAGS} -o ${BONUS} ${OBJS} ${LIBC} libft/libft.a mlx_linux/libmlx.a
+			@printf "${BOLD}║                                   ${PURPLE}${NAME}                                  ${WHITE}║\n"
+			@printf "${BOLD}╚════════════════════════════════════════════════════════════════════════════╝\n"
+
 clean:
 			@${RM} ${OBJS}
 			@${MAKE} -C libft clean >/dev/null
@@ -98,4 +113,4 @@ fclean: clean
 
 re: fclean all
 
-.PHONY:		all clean fclean re
+.PHONY:		all clean fclean re bonus

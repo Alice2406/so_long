@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:50:56 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/23 13:36:50 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/25 13:23:33 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,17 +36,17 @@ void	read_map(t_data *d, char *av)
 	close (fd);
 }
 
-static int nb_line_file(char *str)
+static int	nb_line_file(char *str)
 {
-	int fd;
-	char c;
-	int len;
+	int		fd;
+	char	c;
+	int		len;
 
 	len = 0;
 	fd = open(str, O_RDONLY);
 	if (read(fd, &c, 1) == 0)
 		return (0);
-	while(read(fd, &c, 1) > 0)
+	while (read(fd, &c, 1) > 0)
 		if (c == '\n')
 			len++;
 	close (fd);

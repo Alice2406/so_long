@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:14:15 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/23 13:52:27 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/25 17:08:25 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,14 +27,14 @@ int	main(int ac, char **av)
 //PARTIE OBLIGATOIRE
 //LEAKS
 //separer les bonus de la version normale
-//gerer le segfaut de la croix
+//norminette
 //BONUS
 //gerer les problemes avec mon ennemie : ne bouge parfois pas dans la map pacman 
 //probleme enemie -> teleportation de mon ennemie inexplicable  ????
-//si tu as le temps :  representer la vie par des sprites <heart>
 //mettre un compteur de move sur ta fenetre (voir le so long pacman)
 
-
 //regarder code pour separer bonus de version normale
-//telecharger mes sprites <heart> et ennemie up & down
 //regarder comment mettre le compteur + sprite numero
+
+//relink ????
+//tri so_long.h
