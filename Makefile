@@ -6,7 +6,7 @@
 #    By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/11 16:25:30 by aniezgod          #+#    #+#              #
-#    Updated: 2022/11/25 14:55:42 by aniezgod         ###   ########.fr        #
+#    Updated: 2022/11/29 14:04:24 by aniezgod         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,7 @@ SRCS =	./srcs/so_long.c \
 		./srcs/bonus/enemy_way.c \
 		./srcs/bonus/three_ways_enemy.c \
 		./srcs/bonus/bonus_player2.c \
+		./srcs/bonus/score.c \
 
 OBJS = ${SRCS:.c=.o}
 

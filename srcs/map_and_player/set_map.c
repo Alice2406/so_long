@@ -6,17 +6,18 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:12:28 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/25 15:51:47 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/29 17:06:51 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
-void	print_move(void)
+void	print_move(t_data *d)
 {
 	static int	i = 1;
 
-	ft_printf("Nb of move : %d\n", i);
+	ft_update_score(d, i);
+//	ft_printf("Nb of move : %d\n", i);
 	i++;
 }
 
@@ -27,7 +28,7 @@ static int	putstr_key(int key, t_data *d)
 		destroy_window(d);
 	if (key == A || key == W || key == S || key == D)
 	{
-		print_move();
+		print_move(d);
 //		move_player(d);
 		move_player_bonus(d);
 	}
@@ -46,7 +47,7 @@ void	set_map(int x, int y, t_data *d)
 	d->s->bomb = 0;
 	d->s->door = 0;
 	d->m->mlx = mlx_init();
-	d->m->win = mlx_new_window(d->m->mlx, ((x - 1) * 32), (y * 32), "so_long");
+	d->m->win = mlx_new_window(d->m->mlx, ((x - 1) * 32), ((y + 1) * 32), "so_long");
 	item_location(d);
 	player_place(d);
 	mlx_hook(d->m->win, 33, (0L), red_cross, d);

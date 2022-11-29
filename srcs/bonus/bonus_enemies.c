@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:32:37 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/27 11:03:46 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/29 13:44:10 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,13 +66,14 @@ void	move_anim(t_data *d)
 	int	j;
 
 	i = 0;
-	while (i < 5)
+	while (i < d->s->width)
 	{
 		j = 0;
-		while (j < 33)
+		while (j < d->s->height)
 		{
 			if (d->m->tab[i][j] == 'N')
 			{
+				ft_printf("x= %d, y= %d", i, j);
 				re_init_struct(d);
 				nb_way(d, i, j);
 			}
@@ -85,7 +86,7 @@ void	move_anim(t_data *d)
 int	anim(t_data *d)
 {
 	d->m->enemyspeed++;
-	if (d->m->enemyspeed >= 20000)
+	if (d->m->enemyspeed >= 30000)
 	{
 		move_anim(d);
 		d->m->enemyspeed = 0;

@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/25 15:47:35 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/11/29 14:04:37 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,19 @@
 # define ESS	"./textures/bonus/ESS.xpm"
 # define ESW	"./textures/bonus/ESW.xpm"
 # define PBON	"./textures/bonus/S1PA.xpm"
+# define ZERO	"./textures/bonus/0.xpm"
+# define ONE	"./textures/bonus/1.xpm"
+# define TWO	"./textures/bonus/2.xpm"
+# define THREE	"./textures/bonus/3.xpm"
+# define FOUR	"./textures/bonus/4.xpm"
+# define FIVE	"./textures/bonus/5.xpm"
+# define SIX	"./textures/bonus/6.xpm"
+# define SEVEN	"./textures/bonus/7.xpm"
+# define EIGHT	"./textures/bonus/8.xpm"
+# define NINE	"./textures/bonus/9.xpm"
 # define HEART_F	"./textures/bonus/full_heart.xpm"
 # define HEART_E	"./textures/bonus/empty_heart.xpm"
+
 
 // #ifndef BONUS
 // # define BONUS 1
@@ -156,6 +167,7 @@ char	*stade_one(t_data *d);
 char	*stade_two(t_data *d);
 char	*stade_three(t_data *d);
 void	show_heart(int i, t_data *d);
+void	ft_update_score(t_data *d, int score);
 
 
 #endif
