@@ -6,7 +6,7 @@
 #    By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/11 16:25:30 by aniezgod          #+#    #+#              #
-#    Updated: 2022/11/29 14:04:24 by aniezgod         ###   ########.fr        #
+#    Updated: 2022/12/01 13:36:22 by aniezgod         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -95,7 +95,7 @@ bonus: ${OBJS} ${SRCS}
 			@printf "${BOLD}║                                    ${PURPLE}libft                                   ${WHITE}║\n"
 			@${MAKE} -C ${MLX_USED} >/dev/null 2>&1
 			@printf "${BOLD}║                                     ${PURPLE}mlx                                    ${WHITE}║\n"
-			@${CC} -DBONUS ${FLAGS} ${INCS} ${MLX_FLAGS} -o ${BONUS} ${OBJS} ${LIBC} libft/libft.a mlx_linux/libmlx.a
+			@${CC} -DBONUS ${FLAGS} ${INCS} ${MLX_FLAGS} -o ${NAME} ${SRCS} ${LIBC} libft/libft.a mlx_linux/libmlx.a
 			@printf "${BOLD}║                                   ${PURPLE}${NAME}                                  ${WHITE}║\n"
 			@printf "${BOLD}╚════════════════════════════════════════════════════════════════════════════╝\n"
 

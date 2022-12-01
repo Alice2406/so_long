@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:14:15 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/25 17:08:25 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/01 11:51:03 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(int ac, char **av)
 {
 	t_data	*data;
 
+	ft_printf("%d\n", BONUS);
 	if (ac != 2)
 		print_error("Nb of arguments", NULL);
 	data = data_init();

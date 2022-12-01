@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/29 14:04:37 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/01 12:03:43 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,10 +46,9 @@
 # define HEART_E	"./textures/bonus/empty_heart.xpm"
 
 
-// #ifndef BONUS
-// # define BONUS 1
-// #endif
-// # define BONUS 0
+# ifndef BONUS
+#  define BONUS 0
+# endif
 
 typedef struct s_map {
 	int	height;
