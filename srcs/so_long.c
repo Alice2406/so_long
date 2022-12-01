@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:14:15 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/01 15:17:21 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/01 16:36:32 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,14 +24,8 @@ int	main(int ac, char **av)
 	set_map(data->s->height, data->s->width, data);
 }
 
-//PARTIE OBLIGATOIRE
 //LEAKS
-//separer les bonus de la version normale
 //norminette
-//BONUS
-//gerer les problemes avec mon ennemie : ne bouge parfois pas dans la map pacman 
-//probleme enemie -> teleportation de mon ennemie inexplicable  ????
-//compteur move seulement si move possible 
-
+//probleme enemie --> teleportation de mon ennemie inexplicable  ????
 //relink ????
 //tri so_long.h

@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:55:08 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/25 15:42:30 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/01 16:33:28 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ void	move_back_or_front_bonus(t_data *d, char *stade)
 	if ((d->m->key == S && d->m->tab[d->m->a + 1][d->m->b] != '1')
 		|| (d->m->key == W && d->m->tab[d->m->a - 1][d->m->b] != '1'))
 	{
+		print_move(d);
 		print_img_move(d);
 		if (d->m->key == S)
 		{
@@ -44,6 +45,7 @@ void	move_right_or_left_bonus(t_data *d, char *stade)
 	if ((d->m->key == D && d->m->tab[d->m->a][d->m->b + 1] != '1')
 		|| (d->m->key == A && d->m->tab[d->m->a][d->m->b - 1] != '1'))
 	{
+		print_move(d);
 		print_img_move(d);
 		if (d->m->key == D)
 		{
@@ -86,7 +88,6 @@ void	move_player_bonus(t_data *d)
 {
 	char	*stade;
 
-	show_heart(0, d);
 	check_life(d);
 	if (d->m->life == 1)
 		stade = stade_one(d);

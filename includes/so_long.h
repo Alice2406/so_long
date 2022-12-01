@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/01 12:03:43 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/01 16:05:06 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -167,6 +167,6 @@ char	*stade_two(t_data *d);
 char	*stade_three(t_data *d);
 void	show_heart(int i, t_data *d);
 void	ft_update_score(t_data *d, int score);
-
+void	print_move(t_data *d);
 
 #endif

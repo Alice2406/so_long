@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:32:37 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/01 14:20:04 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/01 17:52:12 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,9 +39,7 @@ void	nb_way(t_data *d, int x, int y)
 
 void	ft_way(t_data *d, int x, int y)
 {
-	if (d->m->nb_way == 0)
-		return ;
-	else if (d->m->nb_way == 1)
+	if (d->m->nb_way == 1)
 		one_way(d, x, y);
 	else if (d->m->nb_way == 2)
 		two_ways(d, x, y);
@@ -85,7 +83,7 @@ void	move_anim(t_data *d)
 int	anim(t_data *d)
 {
 	d->m->enemyspeed++;
-	if (d->m->enemyspeed >= 40000)
+	if (d->m->enemyspeed >= 50000)
 	{
 		move_anim(d);
 		d->m->enemyspeed = 0;
