@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:32:37 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/01 13:37:35 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/01 14:20:04 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,7 @@ void	move_anim(t_data *d)
 int	anim(t_data *d)
 {
 	d->m->enemyspeed++;
-	if (d->m->enemyspeed >= 30000)
+	if (d->m->enemyspeed >= 40000)
 	{
 		move_anim(d);
 		d->m->enemyspeed = 0;
