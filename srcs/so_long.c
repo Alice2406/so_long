@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:14:15 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/01 14:13:12 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/01 15:17:21 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,11 +31,7 @@ int	main(int ac, char **av)
 //BONUS
 //gerer les problemes avec mon ennemie : ne bouge parfois pas dans la map pacman 
 //probleme enemie -> teleportation de mon ennemie inexplicable  ????
-//mettre un compteur de move sur ta fenetre (voir le so long pacman)
 //compteur move seulement si move possible 
-
-//regarder code pour separer bonus de version normale
-//regarder comment mettre le compteur + sprite numero
 
 //relink ????
 //tri so_long.h

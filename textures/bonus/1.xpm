@@ -259,6 +259,7 @@ static char *_669903388277[] = {
 "IX c #FEFEFE",
 "UX c white",
 /* pixels */
+"                                                                ",
 ".                 .     % o   .       $       @                 ",
 "                ;           %   . O         %                   ",
 "      . . . . .         & %     & * > # = = t                   ",
@@ -281,8 +282,6 @@ static char *_669903388277[] = {
 "                          k jXXX= k.JX` t gX*X<                 ",
 "                          k jXXX= k.JX` t gX*X<                 ",
 "                          k jXXX= k.JX` t gX*X<                 ",
-"                          k jXXX= k.JX` t gX*X<                 ",
-"                          k jXXX= k.JX` t gX*X<                 ",
 "                O o   .   g xX#X1 h.LX .i jX-X>                 ",
 "                    X O + M jX/.& v.HX' 0 sX8X1                 ",
 "                O X o     n kX+X$ 2.$XR s 8X2X=                 ",
@@ -290,5 +289,6 @@ static char *_669903388277[] = {
 "                #         B qXnXnXtXfXxXgXbXU.&                 ",
 "                X     O     m l a j Z Z h b m =                 ",
 "                        $   & X & @       @ X                   ",
-"                  # .   .         o X   + O   @                 "
+"                  # .   .         o X   + O   @                 ",
+"                                                                "
 };
