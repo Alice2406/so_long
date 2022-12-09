@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 15:46:30 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/01 15:45:32 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/09 14:56:03 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,8 @@ void	count_char(t_data *d, char c)
 		d->s->door++;
 	else if (c == 'P')
 		d->s->player++;
+	else if (BONUS && c == 'N')
+		d->m->enemy++;
 }
 
 void	check_nb_item(t_data *d)
@@ -43,6 +45,8 @@ void	check_nb_item(t_data *d)
 		d->error->exit = 1;
 	if (d->s->player != 1)
 		d->error->player = 1;
+	if (BONUS && d->m->enemy > 1)
+		d->error->enemy++;
 }
 
 int	check_char(t_data *d)

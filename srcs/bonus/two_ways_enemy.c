@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 16:06:55 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/25 13:42:02 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/09 16:19:11 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,6 +93,3 @@ void	se_comp(t_data *d, int x, int y)
 	else
 		move_east(d, x, y);
 }
-
-//Player x -> d->m->a
-//Enemy x-> x

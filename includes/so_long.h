@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/01 16:05:06 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/09 16:30:47 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,9 +42,8 @@
 # define SEVEN	"./textures/bonus/7.xpm"
 # define EIGHT	"./textures/bonus/8.xpm"
 # define NINE	"./textures/bonus/9.xpm"
-# define HEART_F	"./textures/bonus/full_heart.xpm"
-# define HEART_E	"./textures/bonus/empty_heart.xpm"
-
+# define FULL	"./textures/bonus/full_heart.xpm"
+# define EMPTY	"./textures/bonus/empty_heart.xpm"
 
 # ifndef BONUS
 #  define BONUS 0
@@ -66,6 +65,7 @@ typedef struct s_error {
 	int	shape;
 	int	wall;
 	int	way;
+	int	enemy;
 }				t_error;
 
 typedef struct s_mlx {
@@ -103,70 +103,77 @@ typedef struct s_data {
 	struct s_mlx	*m;
 }				t_data;
 
-//------CHECK_MAP--------//
-
-void	read_map(t_data *d, char *av);
-void	check_map(t_data *d, char **av);
-int	check_shape(t_data *d);
-void	check_line(char *str, t_data *d);
-int	check_wall(t_data *d);
-char	ft_strchr2(const char *s, int c);
-void	count_char(t_data *d, char c);
-void	check_nb_item(t_data *d);
-int	check_char(t_data *d);
-
-
-//------INIT_STRUC------//
+//---------PARSING----------//
 
 t_data	*data_init(void);
-
-//--------ERROR---------//
-
-int	find_error(t_data *d);
-int	print_error(char *msg, t_data *d);
-
-void	item_location(t_data *d);
-void	show_map(t_data *d, char c);
-void	set_map(int x, int y, t_data *d);
-void	move_player(t_data *d);
-void	player_place(t_data *d);
-int	check_tab(t_data *d);
+char	ft_strchr2(const char *s, int c);
+int		check_shape(t_data *d);
+int		check_tab(t_data *d);
+int		check_char(t_data *d);
+int		check_wall(t_data *d);
+void	check_map(t_data *d, char **av);
+void	read_map(t_data *d, char *av);
+void	check_nb_item(t_data *d);
+void	count_char(t_data *d, char c);
+void	check_line(char *str, t_data *d);
 void	check_way(char **tab, t_data *d);
 void	flood_fill(t_data *d, int x, int y);
+void	init_mlx(t_data *d);
+void	way_init(t_data *d);
+void	error_init(t_data *d);
+void	map_init(t_data *d);
+
+//------MAP_AND_PLAYER------//
+
+void	show_map(t_data *d, char c);
+void	item_location(t_data *d);
+void	set_map(int x, int y, t_data *d);
+//int	red_cross(t_data *s);
+void	print_move(t_data *d);
+void	move_player(t_data *d);
+void	move_right_or_left(t_data *d);
+void	move_back_or_front(t_data *d);
 void	print_img_move(t_data *d);
+void	player_place(t_data *d);
 
-//-------BONUS------//
+//-----DESTROY_AND_FREE-----//
 
+int		destroy_window(t_data *d);
+int		print_error(char *msg, t_data *d);
+int		find_error(t_data *d);
+void	map_destroy(t_data *d);
+
+//-----------BONUS----------//
+int		anim(t_data *d);
+char	*stade_three(t_data *d);
+char	*stade_two(t_data *d);
+char	*stade_one(t_data *d);
+void	move_anim(t_data *d);
+void	re_init_struct(t_data *d);
+void	ft_way(t_data *d, int x, int y);
+void	nb_way(t_data *d, int x, int y);
 void	move_player_bonus(t_data *d);
 void	check_life(t_data *d);
 void	move_right_or_left_bonus(t_data *d, char *stade);
 void	move_back_or_front_bonus(t_data *d, char *stade);
-int destroy_window(t_data *d);
-static int nb_line_file(char *str);
-
-int	anim(t_data *d);
+void	show_heart(int i, t_data *d);
+void	four_ways(t_data *d, int x, int y);
+void	three_ways(t_data *d, int x, int y);
+void	two_ways(t_data *d, int x, int y);
 void	one_way(t_data *d, int x, int y);
-void	ft_way(t_data *d, int x, int y);
-void two_ways(t_data *d, int x, int y);
-void move_east(t_data *d, int x, int y);
+void	move_east(t_data *d, int x, int y);
 void	move_west(t_data *d, int x, int y);
 void	move_south(t_data *d, int x, int y);
 void	move_north(t_data *d, int x, int y);
-void three_ways(t_data *d, int x, int y);
-void	ns_or_we_comp(t_data *d, int x, int y);
-void	nw_comp(t_data *d, int x, int y);
-void	ne_comp(t_data *d, int x, int y);
-void	sw_comp(t_data *d, int x, int y);
-void	se_comp(t_data *d, int x, int y);
-void	nsw_or_nse_comp(t_data *d, int x, int y);
-void	wes_or_wen_comp(t_data *d, int x, int y);
-void	four_ways(t_data *d, int x, int y);
-
-char	*stade_one(t_data *d);
-char	*stade_two(t_data *d);
-char	*stade_three(t_data *d);
-void	show_heart(int i, t_data *d);
+void	enemy_bomb_door(t_data *d, int x, int y);
 void	ft_update_score(t_data *d, int score);
-void	print_move(t_data *d);
+void	ft_put_font(t_data *d, int digit, int i);
+void	wes_or_wen_comp(t_data *d, int x, int y);
+void	nsw_or_nse_comp(t_data *d, int x, int y);
+void	se_comp(t_data *d, int x, int y);
+void	sw_comp(t_data *d, int x, int y);
+void	ne_comp(t_data *d, int x, int y);
+void	nw_comp(t_data *d, int x, int y);
+void	ns_or_we_comp(t_data *d, int x, int y);
 
 #endif

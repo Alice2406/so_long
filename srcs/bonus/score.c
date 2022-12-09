@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/29 13:37:56 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/29 17:28:01 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/09 16:33:40 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 void	ft_put_font(t_data *d, int digit, int i)
 {
-	int height;
-
-	height = d->s->height - 2;
 	if (digit == 0)
 		d->m->img = mlx_xpm_file_to_image(d->m->mlx, ZERO, &d->m->x, &d->m->y);
 	if (digit == 1)
@@ -37,13 +34,14 @@ void	ft_put_font(t_data *d, int digit, int i)
 		d->m->img = mlx_xpm_file_to_image(d->m->mlx, EIGHT, &d->m->x, &d->m->y);
 	if (digit == 9)
 		d->m->img = mlx_xpm_file_to_image(d->m->mlx, NINE, &d->m->x, &d->m->y);
-	mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img, (height - i) * 32, d->s->width * 32);
+	mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img,
+		(d->s->height - i - 2) * 32, d->s->width * 32);
 }
 
 void	ft_update_score(t_data *d, int score)
 {
 	int	i;
-	int height;
+	int	height;
 	int	digit;
 
 	i = 0;
@@ -53,7 +51,8 @@ void	ft_update_score(t_data *d, int score)
 		digit = score % 10;
 		score /= 10;
 		d->m->img = mlx_xpm_file_to_image(d->m->mlx, ZERO, &d->m->x, &d->m->y);
-		mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img, (height - i) * 32, d->s->width * 32);
+		mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img,
+			(height - i) * 32, d->s->width * 32);
 		ft_put_font(d, digit, i);
 		i++;
 	}

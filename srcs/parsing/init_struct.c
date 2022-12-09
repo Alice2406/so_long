@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 11:32:11 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/01 15:18:48 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/09 14:56:51 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void	error_init(t_data *d)
 	d->error->shape = 0;
 	d->error->wall = 0;
 	d->error->way = 0;
+	d->error->enemy = 0;
 }
 
 void	way_init(t_data *d)

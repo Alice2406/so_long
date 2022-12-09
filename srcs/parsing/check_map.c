@@ -6,11 +6,28 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:50:56 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/25 13:23:33 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/09 16:24:20 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
+
+static int	nb_line_file(char *str)
+{
+	int		fd;
+	char	c;
+	int		len;
+
+	len = 0;
+	fd = open(str, O_RDONLY);
+	if (read(fd, &c, 1) == 0)
+		return (0);
+	while (read(fd, &c, 1) > 0)
+		if (c == '\n')
+			len++;
+	close (fd);
+	return (len + 1);
+}
 
 void	read_map(t_data *d, char *av)
 {
@@ -34,23 +51,6 @@ void	read_map(t_data *d, char *av)
 	}
 	d->m->tab[i] = NULL;
 	close (fd);
-}
-
-static int	nb_line_file(char *str)
-{
-	int		fd;
-	char	c;
-	int		len;
-
-	len = 0;
-	fd = open(str, O_RDONLY);
-	if (read(fd, &c, 1) == 0)
-		return (0);
-	while (read(fd, &c, 1) > 0)
-		if (c == '\n')
-			len++;
-	close (fd);
-	return (len + 1);
 }
 
 int	check_tab(t_data *d)

@@ -6,26 +6,32 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 13:46:12 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/01 16:46:25 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/09 16:31:30 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "so_long.h"
 
 void	show_heart(int i, t_data *d)
-{
-	d->m->img = mlx_xpm_file_to_image(d->m->mlx, HEART_F, &d->m->x, &d->m->y);
-	mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img, 0, d->s->width * 32);
+{	
+	int	width;
+
+	if (d->s->height > 7)
+		width = d->s->width;
+	else
+		width = d->s->width + 1;
+	d->m->img = mlx_xpm_file_to_image(d->m->mlx, FULL, &d->m->x, &d->m->y);
+	mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img, 0, width * 32);
 	if (i == 1)
-		d->m->img = mlx_xpm_file_to_image(d->m->mlx, HEART_E, &d->m->x, &d->m->y);
+		d->m->img = mlx_xpm_file_to_image(d->m->mlx, EMPTY, &d->m->x, &d->m->y);
 	else if (i == 2 || i == 3)
-		d->m->img = mlx_xpm_file_to_image(d->m->mlx, HEART_F, &d->m->x, &d->m->y);
-	mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img, 32, d->s->width * 32);
+		d->m->img = mlx_xpm_file_to_image(d->m->mlx, FULL, &d->m->x, &d->m->y);
+	mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img, 32, width * 32);
 	if (i == 1 || i == 2)
-		d->m->img = mlx_xpm_file_to_image(d->m->mlx, HEART_E, &d->m->x, &d->m->y);
+		d->m->img = mlx_xpm_file_to_image(d->m->mlx, EMPTY, &d->m->x, &d->m->y);
 	else if (i == 3)
-		d->m->img = mlx_xpm_file_to_image(d->m->mlx, HEART_F, &d->m->x, &d->m->y);
-	mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img, 64, d->s->width * 32);
+		d->m->img = mlx_xpm_file_to_image(d->m->mlx, FULL, &d->m->x, &d->m->y);
+	mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img, 64, width * 32);
 }
 
 char	*stade_one(t_data *d)

@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 16:45:03 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/11/15 16:47:08 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/09 14:59:05 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ int	find_error(t_data *d)
 		print_error("Nb of collective is incorrect", d);
 	else if (d->error->way == 1)
 		print_error("There is no way to solve the game", d);
+	else if (BONUS && d->error->enemy == 1)
+		print_error("There are too many enemies on the map", d);
 	return (1);
 }
 

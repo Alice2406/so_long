@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:12:28 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/01 16:43:37 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/09 16:25:51 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,14 +51,19 @@ void	set_map(int x, int y, t_data *d)
 	d->s->door = 0;
 	d->m->mlx = mlx_init();
 	if (!BONUS)
-		d->m->win = mlx_new_window(d->m->mlx, ((x - 1) * 32), (y * 32), "so_long");
+		d->m->win = mlx_new_window(d->m->mlx, ((x - 1) * 32),
+				(y * 32), "so_long");
+	else if (d->s->height > 7)
+		d->m->win = mlx_new_window(d->m->mlx, ((x - 1) * 32),
+				((y + 1) * 32), "so_long");
 	else
-		d->m->win = mlx_new_window(d->m->mlx, ((x - 1) * 32), ((y + 1) * 32), "so_long");
+		d->m->win = mlx_new_window(d->m->mlx, ((x - 1) * 32),
+				((y + 2) * 32), "so_long");
 	item_location(d);
 	player_place(d);
 	mlx_hook(d->m->win, 33, (0L), red_cross, d);
 	mlx_hook(d->m->win, 2, 1L << 0, putstr_key, d);
-	if (BONUS)
+	if (BONUS && d->m->enemy == 1)
 		mlx_loop_hook(d->m->mlx, anim, d);
 	mlx_loop(d->m->mlx);
 }
@@ -101,10 +106,7 @@ void	show_map(t_data *d, char c)
 	else if (c == 'C')
 		d->m->img = mlx_xpm_file_to_image(d->m->mlx, BOMB, &d->m->x, &d->m->y);
 	else if (c == 'N' && BONUS)
-	{
 		d->m->img = mlx_xpm_file_to_image(d->m->mlx, ESD, &d->m->x, &d->m->y);
-		d->m->enemy++;
-	}
 	else
 		d->m->img = mlx_xpm_file_to_image(d->m->mlx, DOOR, &d->m->x, &d->m->y);
 	mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img, d->m->a, d->m->b);
