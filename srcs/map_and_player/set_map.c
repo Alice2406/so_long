@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:12:28 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/09 16:25:51 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/12 12:07:47 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static int	putstr_key(int key, t_data *d)
 int	red_cross(t_data *s) //a deplacer 
 {
 	ft_printf("Red cross\n");
-	exit(0123);
+	exit(0);
 	return (0);
 }
 

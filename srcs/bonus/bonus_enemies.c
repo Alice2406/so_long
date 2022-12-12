@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:32:37 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/09 15:52:45 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/12 16:51:05 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,9 +71,13 @@ void	move_anim(t_data *d)
 		{
 			if (d->m->tab[i][j] == 'N')
 			{
+				if (d->m->a == i && d->m->b == j && d->m->life > 0)		
+					d->m->life--;
+				if (d->m->life == 0)
+					destroy_window(d);
 				re_init_struct(d);
 				nb_way(d, i, j);
-				break ;
+				return ;
 			}
 			j++;
 		}

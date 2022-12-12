@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:14:15 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/09 16:34:08 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/12 12:02:08 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,4 @@ int	main(int ac, char **av)
 //norminette
 //relink ????
 //croisement avec l'ennemie pas toujours clean 
-//mettre a jour le .h
+//mettre a jour le .ha

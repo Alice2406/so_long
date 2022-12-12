@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:55:08 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/01 16:33:28 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/12 16:38:02 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,10 @@ void	move_player_bonus(t_data *d)
 {
 	char	*stade;
 
+	if (d->m->tab[d->m->a][d->m->b] == 'N' && d->m->life > 0)
+		d->m->life--;
+	if (d->m->life == 0)
+		destroy_window(d);
 	check_life(d);
 	if (d->m->life == 1)
 		stade = stade_one(d);
