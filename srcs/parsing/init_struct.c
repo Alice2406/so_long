@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 11:32:11 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/09 14:56:51 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/14 17:27:24 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ t_data	*data_init(void)
 {
 	t_data	*d;
 
-	d = malloc(sizeof(d));
+	d = malloc(sizeof(t_data));
 	if (!d)
 		return (NULL);
 	d->s = malloc(sizeof(t_map));

@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:32:37 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/14 11:39:05 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/14 15:41:48 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,7 +74,7 @@ void	move_anim(t_data *d)
 				if (d->m->a == i && d->m->b == j && d->m->life > 0)
 					d->m->life--;
 				if (d->m->life == 0)
-					destroy_window(d);
+					close_window(d);
 				re_init_struct(d);
 				nb_way(d, i, j);
 				return ;

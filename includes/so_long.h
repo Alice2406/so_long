@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/09 16:30:47 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/14 18:47:05 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -128,7 +128,6 @@ void	map_init(t_data *d);
 void	show_map(t_data *d, char c);
 void	item_location(t_data *d);
 void	set_map(int x, int y, t_data *d);
-//int	red_cross(t_data *s);
 void	print_move(t_data *d);
 void	move_player(t_data *d);
 void	move_right_or_left(t_data *d);
@@ -138,10 +137,14 @@ void	player_place(t_data *d);
 
 //-----DESTROY_AND_FREE-----//
 
-int		destroy_window(t_data *d);
-int		print_error(char *msg, t_data *d);
+int		red_cross(t_data *d);
+int		print_error(char *msg, t_data *d, int c);
 int		find_error(t_data *d);
 void	map_destroy(t_data *d);
+void	free_map(t_data *d);
+void	free_struct(t_data *d);
+void	close_window(t_data *d);
+void	ft_exit(t_data *d);
 
 //-----------BONUS----------//
 int		anim(t_data *d);

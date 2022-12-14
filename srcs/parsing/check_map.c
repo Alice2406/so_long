@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:50:56 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/09 16:24:20 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/14 18:26:49 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,9 +37,12 @@ void	read_map(t_data *d, char *av)
 
 	i = 0;
 	fd = open(av, O_RDONLY);
+	if (fd )
 	if (nb_line_file(av) == 0)
 		return ;
 	d->m->tab = malloc (sizeof(char *) * (nb_line_file(av) + 1));
+	if (!d->m->tab)
+		return ;
 	str = get_next_line(fd);
 	if (!str)
 		return ;
@@ -97,28 +100,24 @@ int	check_shape(t_data *d)
 
 void	check_map(t_data *d, char **av)
 {
-	int		fd;
 	char	*str;
 
-	fd = open(av[1], O_RDONLY);
-	if (fd < 0)
-		print_error("The file doesn't exist", d);
-	close (fd);
 	str = ft_substr(av[1], ft_strlen(av[1]) - 4, 4);
 	if (ft_strncmp(str, ".ber", 4) != 0)
 	{
 		free(str);
-		print_error("The file is not a .ber", d);
+		print_error("The file is not a .ber", d, 1);
 	}
 	free(str);
 	read_map(d, av[1]);
 	if (!d->m->tab)
-		print_error("The file is empty", d);
+		print_error("The file is empty", d, 1);
 	check_shape(d);
 	check_char(d);
 	check_wall(d);
 	find_error(d);
 	check_way(d->m->tab, d);
+	free_map(d);
 	d->s->width = 0;
 	read_map(d, av[1]);
 }

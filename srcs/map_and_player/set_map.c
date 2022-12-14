@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:12:28 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/12 12:07:47 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/14 17:40:59 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	putstr_key(int key, t_data *d)
 {
 	d->m->key = key;
 	if (key == ESC)
-		destroy_window(d);
+		close_window(d);
 	if (key == A || key == W || key == S || key == D)
 	{
 		if (!BONUS)
@@ -35,13 +35,6 @@ static int	putstr_key(int key, t_data *d)
 		else
 			move_player_bonus(d);
 	}
-	return (0);
-}
-
-int	red_cross(t_data *s) //a deplacer 
-{
-	ft_printf("Red cross\n");
-	exit(0);
 	return (0);
 }
 
@@ -72,7 +65,6 @@ void	item_location(t_data *d)
 {
 	int		i;
 	int		j;
-	char	c;
 
 	i = 0;
 	d->m->a = 0;
@@ -82,7 +74,6 @@ void	item_location(t_data *d)
 		j = 0;
 		while (d->m->tab[i][j])
 		{
-			c = d->m->tab[i][j];
 			show_map(d, d->m->tab[i][j]);
 			d->m->a += 32;
 			j++;
@@ -113,3 +104,5 @@ void	show_map(t_data *d, char c)
 	if (BONUS)
 		show_heart(1, d);
 }
+
+ 
