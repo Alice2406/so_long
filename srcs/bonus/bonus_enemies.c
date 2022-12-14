@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 13:32:37 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/12 16:51:05 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/14 11:39:05 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	move_anim(t_data *d)
 		{
 			if (d->m->tab[i][j] == 'N')
 			{
-				if (d->m->a == i && d->m->b == j && d->m->life > 0)		
+				if (d->m->a == i && d->m->b == j && d->m->life > 0)
 					d->m->life--;
 				if (d->m->life == 0)
 					destroy_window(d);
@@ -88,7 +88,7 @@ void	move_anim(t_data *d)
 int	anim(t_data *d)
 {
 	d->m->enemyspeed++;
-	if (d->m->enemyspeed >= 20000)
+	if (d->m->enemyspeed >= 10000)
 	{
 		move_anim(d);
 		d->m->enemyspeed = 0;

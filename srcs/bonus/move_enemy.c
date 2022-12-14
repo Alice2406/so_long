@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/17 13:15:07 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/12 16:40:30 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/14 11:38:06 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,6 +79,7 @@ void	move_south(t_data *d, int x, int y)
 	i = (x * 32) + 32;
 	j = y * 32;
 	d->m->img = mlx_xpm_file_to_image(d->m->mlx, ESS, &d->m->x, &d->m->y);
+	mlx_put_image_to_window(d->m->mlx, d->m->win, d->m->img, j, i);
 }
 
 void	move_west(t_data *d, int x, int y)
