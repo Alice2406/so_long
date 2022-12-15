@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/05 11:32:11 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/14 17:27:24 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/15 18:30:43 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,11 +74,20 @@ t_data	*data_init(void)
 	d->error = malloc(sizeof(t_error));
 	d->w = malloc(sizeof(t_way));
 	d->m = malloc(sizeof(t_mlx));
-	if (!d->s || !d->error || !d->w || !d->m)
+	d->t = malloc(sizeof(t_sprite));
+	d->p = malloc(sizeof(t_player));
+	d->e = malloc(sizeof(t_enemy));
+	d->f = malloc(sizeof(t_font));
+	if (!d->s || !d->error || !d->w || !d->m || !d->t
+		|| !d->p || !d->e || !d->f)
 		return (NULL);
 	map_init(d);
 	error_init(d);
 	way_init(d);
 	init_mlx(d);
+	init_sprite(d);
+	init_player(d);
+	init_enemy(d);
+	init_font(d);
 	return (d);
 }

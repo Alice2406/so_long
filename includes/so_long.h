@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/14 18:47:05 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/15 18:41:15 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,22 +16,47 @@
 # include "libft.h"
 # include "mlx.h"
 
+//----------KEY_PRESS----------//
+
 # define W	119
 # define A	97
 # define D	100
 # define S	115
 # define ESC	65307
 
+//--------BASIC_SPRITE--------//
+
 # define SOL	"./textures/terrain.xpm"
 # define FIRE	"./textures/fire.xpm"
 # define WALL	"./textures/wall.xpm"
 # define BOMB	"./textures/bomb.xpm"
 # define DOOR	"./textures/door.xpm"
+
+//------------ENEMY----------//
 # define ESD	"./textures/bonus/ESD.xpm"
 # define ESA	"./textures/bonus/ESA.xpm"
 # define ESS	"./textures/bonus/ESS.xpm"
 # define ESW	"./textures/bonus/ESW.xpm"
-# define PBON	"./textures/bonus/S1PA.xpm"
+
+//--------PLAYER_BONUS-------//
+
+# define AONE	"./textures/bonus/S1PA.xpm"
+# define DONE	"./textures/bonus/S1PD.xpm"
+# define WONE	"./textures/bonus/S1PW.xpm"
+# define SONE	"./textures/bonus/S1PS.xpm"
+
+# define ATWO	"./textures/bonus/S2PA.xpm"
+# define DTWO	"./textures/bonus/S2PD.xpm"
+# define WTWO	"./textures/bonus/S2PW.xpm"
+# define STWO	"./textures/bonus/S2PS.xpm"
+
+# define ATHREE	"./textures/bonus/S3PA.xpm"
+# define DTHREE	"./textures/bonus/S3PD.xpm"
+# define WTHREE	"./textures/bonus/S3PW.xpm"
+# define STHREE	"./textures/bonus/S3PS.xpm"
+
+//-----------FONT-----------//
+
 # define ZERO	"./textures/bonus/0.xpm"
 # define ONE	"./textures/bonus/1.xpm"
 # define TWO	"./textures/bonus/2.xpm"
@@ -96,11 +121,59 @@ typedef struct s_way {
 	int		y;
 }				t_way;
 
+typedef struct s_sprite {
+	void	*wall;
+	void	*sol;
+	void	*fire;
+	void	*bomb;
+	void	*door;
+}				t_sprite;
+
+typedef struct s_player {
+	void	*a_one;
+	void	*d_one;
+	void	*w_one;
+	void	*s_one;
+	void	*a_two;
+	void	*d_two;
+	void	*w_two;
+	void	*s_two;
+	void	*a_three;
+	void	*d_three;
+	void	*w_three;
+	void	*s_three;
+}				t_player;
+
+typedef struct s_font {
+	void	*one;
+	void	*two;
+	void	*three;
+	void	*four;
+	void	*five;
+	void	*six;
+	void	*seven;
+	void	*eight;
+	void	*nine;
+	void	*full_heart;
+	void	*empty_heart;
+}				t_font;
+
+typedef struct s_enemy {
+	void	*es;
+	void	*ea;
+	void	*ew;
+	void	*ed;
+}				t_enemy;
+
 typedef struct s_data {
 	struct s_map	*s;
 	struct s_error	*error;
 	struct s_way	*w;
 	struct s_mlx	*m;
+	struct s_sprite	*t;
+	struct s_player *p;
+	struct s_enemy	*e;
+	struct s_font	*f;
 }				t_data;
 
 //---------PARSING----------//
@@ -122,6 +195,8 @@ void	init_mlx(t_data *d);
 void	way_init(t_data *d);
 void	error_init(t_data *d);
 void	map_init(t_data *d);
+void	sprite_to_image(t_data *d);
+void	init_sprite(t_data *d);
 
 //------MAP_AND_PLAYER------//
 
@@ -134,6 +209,9 @@ void	move_right_or_left(t_data *d);
 void	move_back_or_front(t_data *d);
 void	print_img_move(t_data *d);
 void	player_place(t_data *d);
+void	init_player(t_data *d);
+void	init_enemy(t_data *d);
+void	init_font(t_data *d);
 
 //-----DESTROY_AND_FREE-----//
 

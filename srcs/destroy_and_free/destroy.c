@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:44:27 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/14 19:22:47 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/15 14:55:53 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,18 @@ void	free_struct(t_data *d)
 	free(d->error);
 	free(d->w);
 	free(d->m);
+	free(d->t);
 	free(d);
+}
+
+void	destroy_sprite(t_data *d)
+{
+	mlx_destroy_image(d->m->mlx, d->t->wall);
+	mlx_destroy_image(d->m->mlx, d->t->door);
+	mlx_destroy_image(d->m->mlx, d->t->sol);
+	mlx_destroy_image(d->m->mlx, d->t->bomb);
+	mlx_destroy_image(d->m->mlx, d->t->fire);
+
 }
 
 void	close_window(t_data *d)
@@ -44,6 +55,9 @@ void	close_window(t_data *d)
 		mlx_destroy_image(d->m->mlx, d->m->img);
 	if (d->m->win)
 		mlx_destroy_window(d->m->mlx, d->m->win);
+	destroy_sprite(d);
+	mlx_destroy_display(d->m->mlx);
+	free(d->m->mlx);
 }
 
 void	ft_exit(t_data *d)

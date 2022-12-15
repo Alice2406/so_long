@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:14:15 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/14 18:38:53 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/15 17:47:56 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	main(int ac, char **av)
 //LEAKS
 //norminette
 //relink ????
+//leaks when i press control c ????
 //mettre a jour le .h
 //error avec init data ??? 
 
@@ -55,15 +56,13 @@ ERROR BONUS
 	- too many enemies on the map OK
 
 CHECK ON BASIC MAP
-	- leaks when you win the game
-	- leaks when you press red cross 
-	- leaks when you press esc
-	- leaks when you press control c 
+	- leaks when you win the game OK
+	- leaks when you press red cross OK
+	- leaks when you press esc OK
 
 CHECK ON BONUS MAP
 	- leaks when you win the game
 	- leaks when you press red cross
 	- leaks when you press esc 
-	- leaks when you press control c
 	- leaks when the enemy kill you
 */
