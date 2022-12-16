@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:14:15 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/16 13:53:21 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/16 15:22:57 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,16 @@ int	main(int ac, char **av)
 		print_error("The file doesn't exist", NULL, 0);
 	close (fd);
 	data = data_init();
+	if (!data)
+		return (1);
 	check_map(data, av);
 	find_error(data);
 	set_map(data->s->height, data->s->width, data);
 }
 
 //relink ????
-//leaks when i press control c ????
+//env -i 
+//message for player win and loooose
 
 /*
 CHECK ON BASIC MAP AND ON BONUS MAP

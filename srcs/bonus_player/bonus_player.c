@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/07 16:55:08 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/16 13:06:13 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/16 15:53:00 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	move_back_or_front_one(t_data *d)
 	if (d->m->tab[d->m->a][d->m->b] == 'C')
 		d->m->tab[d->m->a][d->m->b] = '0';
 	if (d->m->tab[d->m->a][d->m->b] == 'E' && check_tab(d) == 0)
-		ft_exit(d);
+		ft_exit(d, 2);
 }
 
 void	move_right_or_left_one(t_data *d)
@@ -61,7 +61,7 @@ void	move_right_or_left_one(t_data *d)
 	if (d->m->tab[d->m->a][d->m->b] == 'C')
 		d->m->tab[d->m->a][d->m->b] = '0';
 	if (d->m->tab[d->m->a][d->m->b] == 'E' && check_tab(d) == 0)
-		ft_exit(d);
+		ft_exit(d, 2);
 }
 
 void	check_life(t_data *d)
@@ -85,7 +85,7 @@ void	move_player_bonus(t_data *d)
 	if (d->m->tab[d->m->a][d->m->b] == 'N' && d->m->life > 0)
 		d->m->life--;
 	if (d->m->life == 0)
-		ft_exit(d);
+		ft_exit(d, 1);
 	check_life(d);
 	show_heart(d->m->life, d);
 	if (d->m->life == 1 && (d->m->key == D || d->m->key == A))

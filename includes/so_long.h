@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/16 13:52:19 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/16 15:52:28 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -230,7 +230,7 @@ void	map_destroy(t_data *d);
 void	free_map(t_data *d);
 void	free_struct(t_data *d);
 void	close_window(t_data *d);
-void	ft_exit(t_data *d);
+void	ft_exit(t_data *d, int i);
 void	destroy_sprite(t_data *d);
 void	destroy_player(t_data *d);
 void	destroy_enemy(t_data *d);

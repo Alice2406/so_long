@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/10 12:44:27 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/16 13:34:56 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/16 16:01:49 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,7 @@
 
 int	red_cross(t_data *d)
 {
-	ft_printf("Red cross\n");
-	ft_exit(d);
+	ft_exit(d, 3);
 	return (0);
 }
 
@@ -59,8 +58,16 @@ void	close_window(t_data *d)
 	free(d->m->mlx);
 }
 
-void	ft_exit(t_data *d)
+void	ft_exit(t_data *d, int i)
 {
+	if (i == 0)
+		ft_printf("\nToo easy for you ahah\nTry bonus part ;)\n");
+	else if (i == 1)
+		ft_printf("LOOOOOOOSER\n");
+	else if (i == 2)
+		ft_printf("Don't brag, it was easy !!\n");
+	else if (i == 3)
+		ft_printf("I already miss you ! :(\n");
 	free_map(d);
 	close_window(d);
 	free_struct(d);

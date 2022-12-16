@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:12:28 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/16 13:34:32 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/16 15:54:09 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ static int	putstr_key(int key, t_data *d)
 {
 	d->m->key = key;
 	if (key == ESC)
-		ft_exit(d);
+		ft_exit(d, 3);
 	if (key == A || key == W || key == S || key == D)
 	{
 		if (!BONUS)
@@ -54,6 +54,8 @@ void	set_map(int x, int y, t_data *d)
 	else
 		d->m->win = mlx_new_window(d->m->mlx, ((x - 1) * 32),
 				((y + 2) * 32), "so_long");
+	if (!d->m->win)
+		return ;
 	init_all_sprite(d);
 	item_location(d);
 	player_place(d);

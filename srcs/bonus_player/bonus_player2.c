@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/25 13:46:12 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/16 13:05:02 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/16 15:53:25 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void	move_back_or_front_two(t_data *d)
 	if (d->m->tab[d->m->a][d->m->b] == 'C')
 		d->m->tab[d->m->a][d->m->b] = '0';
 	if (d->m->tab[d->m->a][d->m->b] == 'E' && check_tab(d) == 0)
-		ft_exit(d);
+		ft_exit(d, 2);
 }
 
 void	move_right_or_left_two(t_data *d)
@@ -84,7 +84,7 @@ void	move_right_or_left_two(t_data *d)
 	if (d->m->tab[d->m->a][d->m->b] == 'C')
 		d->m->tab[d->m->a][d->m->b] = '0';
 	if (d->m->tab[d->m->a][d->m->b] == 'E' && check_tab(d) == 0)
-		ft_exit(d);
+		ft_exit(d, 2);
 }
 
 void	move_back_or_front_three(t_data *d)
@@ -110,7 +110,7 @@ void	move_back_or_front_three(t_data *d)
 	if (d->m->tab[d->m->a][d->m->b] == 'C')
 		d->m->tab[d->m->a][d->m->b] = '0';
 	if (d->m->tab[d->m->a][d->m->b] == 'E' && check_tab(d) == 0)
-		ft_exit(d);
+		ft_exit(d, 2);
 }
 
 void	move_right_or_left_three(t_data *d)
@@ -136,5 +136,5 @@ void	move_right_or_left_three(t_data *d)
 	if (d->m->tab[d->m->a][d->m->b] == 'C')
 		d->m->tab[d->m->a][d->m->b] = '0';
 	if (d->m->tab[d->m->a][d->m->b] == 'E' && check_tab(d) == 0)
-		ft_exit(d);
+		ft_exit(d, 2);
 }
