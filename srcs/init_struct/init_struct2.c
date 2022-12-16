@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/15 14:06:40 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/15 18:25:56 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/16 13:33:54 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,15 +47,16 @@ void	init_enemy(t_data *d)
 
 void	init_font(t_data *d)
 {
+	d->f->zer = NULL;
 	d->f->one = NULL;
 	d->f->two = NULL;
-	d->f->three = NULL;
-	d->f->four = NULL;
-	d->f->five = NULL;
+	d->f->thr = NULL;
+	d->f->fou = NULL;
+	d->f->fiv = NULL;
 	d->f->six = NULL;
-	d->f->seven = NULL;
-	d->f->eight = NULL;
-	d->f->nine = NULL;
-	d->f->full_heart = NULL;
-	d->f->empty_heart = NULL;
+	d->f->sev = NULL;
+	d->f->eig = NULL;
+	d->f->nin = NULL;
+	d->f->full = NULL;
+	d->f->empty = NULL;
 }

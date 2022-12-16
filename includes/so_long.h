@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/29 15:24:13 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/15 18:41:15 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/16 13:52:19 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -145,17 +145,18 @@ typedef struct s_player {
 }				t_player;
 
 typedef struct s_font {
+	void	*zer;
 	void	*one;
 	void	*two;
-	void	*three;
-	void	*four;
-	void	*five;
+	void	*thr;
+	void	*fou;
+	void	*fiv;
 	void	*six;
-	void	*seven;
-	void	*eight;
-	void	*nine;
-	void	*full_heart;
-	void	*empty_heart;
+	void	*sev;
+	void	*eig;
+	void	*nin;
+	void	*full;
+	void	*empty;
 }				t_font;
 
 typedef struct s_enemy {
@@ -171,14 +172,13 @@ typedef struct s_data {
 	struct s_way	*w;
 	struct s_mlx	*m;
 	struct s_sprite	*t;
-	struct s_player *p;
+	struct s_player	*p;
 	struct s_enemy	*e;
 	struct s_font	*f;
 }				t_data;
 
 //---------PARSING----------//
 
-t_data	*data_init(void);
 char	ft_strchr2(const char *s, int c);
 int		check_shape(t_data *d);
 int		check_tab(t_data *d);
@@ -191,12 +191,23 @@ void	count_char(t_data *d, char c);
 void	check_line(char *str, t_data *d);
 void	check_way(char **tab, t_data *d);
 void	flood_fill(t_data *d, int x, int y);
+
+//-------INIT_STRUCT--------//
+
+t_data	*data_init(void);
 void	init_mlx(t_data *d);
 void	way_init(t_data *d);
 void	error_init(t_data *d);
 void	map_init(t_data *d);
 void	sprite_to_image(t_data *d);
+void	player_bonus_img(t_data *d);
+void	enemy_img(t_data *d);
+void	font_img(t_data *d);
+void	init_all_sprite(t_data *d);
 void	init_sprite(t_data *d);
+void	init_player(t_data *d);
+void	init_enemy(t_data *d);
+void	init_font(t_data *d);
 
 //------MAP_AND_PLAYER------//
 
@@ -209,9 +220,6 @@ void	move_right_or_left(t_data *d);
 void	move_back_or_front(t_data *d);
 void	print_img_move(t_data *d);
 void	player_place(t_data *d);
-void	init_player(t_data *d);
-void	init_enemy(t_data *d);
-void	init_font(t_data *d);
 
 //-----DESTROY_AND_FREE-----//
 
@@ -223,21 +231,32 @@ void	free_map(t_data *d);
 void	free_struct(t_data *d);
 void	close_window(t_data *d);
 void	ft_exit(t_data *d);
+void	destroy_sprite(t_data *d);
+void	destroy_player(t_data *d);
+void	destroy_enemy(t_data *d);
+void	destroy_font(t_data *d);
 
-//-----------BONUS----------//
+//-------BONUS_PLAYER-------//
+
+void	move_back_or_front_one(t_data *d);
+void	move_right_or_left_one(t_data *d);
+void	move_back_or_front_two(t_data *d);
+void	move_right_or_left_two(t_data *d);
+void	move_back_or_front_three(t_data *d);
+void	move_right_or_left_three(t_data *d);
+void	move_player_bonus(t_data *d);
+void	check_life(t_data *d);
+void	show_heart(int i, t_data *d);
+void	ft_update_score(t_data *d, int score);
+void	ft_put_font(t_data *d, int digit, int i, int height);
+
+//----------ENEMY-----------//
+
 int		anim(t_data *d);
-char	*stade_three(t_data *d);
-char	*stade_two(t_data *d);
-char	*stade_one(t_data *d);
 void	move_anim(t_data *d);
 void	re_init_struct(t_data *d);
 void	ft_way(t_data *d, int x, int y);
 void	nb_way(t_data *d, int x, int y);
-void	move_player_bonus(t_data *d);
-void	check_life(t_data *d);
-void	move_right_or_left_bonus(t_data *d, char *stade);
-void	move_back_or_front_bonus(t_data *d, char *stade);
-void	show_heart(int i, t_data *d);
 void	four_ways(t_data *d, int x, int y);
 void	three_ways(t_data *d, int x, int y);
 void	two_ways(t_data *d, int x, int y);
@@ -247,8 +266,6 @@ void	move_west(t_data *d, int x, int y);
 void	move_south(t_data *d, int x, int y);
 void	move_north(t_data *d, int x, int y);
 void	enemy_bomb_door(t_data *d, int x, int y);
-void	ft_update_score(t_data *d, int score);
-void	ft_put_font(t_data *d, int digit, int i);
 void	wes_or_wen_comp(t_data *d, int x, int y);
 void	nsw_or_nse_comp(t_data *d, int x, int y);
 void	se_comp(t_data *d, int x, int y);

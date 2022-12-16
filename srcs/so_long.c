@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:14:15 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/15 17:47:56 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/16 13:53:21 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,8 @@ int	main(int ac, char **av)
 	set_map(data->s->height, data->s->width, data);
 }
 
-//LEAKS
-//norminette
 //relink ????
 //leaks when i press control c ????
-//mettre a jour le .h
-//error avec init data ??? 
 
 /*
 CHECK ON BASIC MAP AND ON BONUS MAP
@@ -61,8 +57,8 @@ CHECK ON BASIC MAP
 	- leaks when you press esc OK
 
 CHECK ON BONUS MAP
-	- leaks when you win the game
-	- leaks when you press red cross
-	- leaks when you press esc 
-	- leaks when the enemy kill you
+	- leaks when you win the game OK
+	- leaks when you press red cross OK
+	- leaks when you press esc OK
+	- leaks when the enemy kill you OK
 */

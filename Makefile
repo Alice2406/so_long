@@ -6,7 +6,7 @@
 #    By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/05/11 16:25:30 by aniezgod          #+#    #+#              #
-#    Updated: 2022/12/15 14:17:02 by aniezgod         ###   ########.fr        #
+#    Updated: 2022/12/16 13:46:20 by aniezgod         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,25 +25,26 @@ CYAN = \e[0;36m
 WHITE = \e[0;37m
 
 SRCS =	./srcs/so_long.c \
-		./srcs/parsing/check_map.c \
-		./srcs/destroy_and_free/ft_error.c \
 		./srcs/parsing/check_char_map.c \
+		./srcs/parsing/check_map.c \
 		./srcs/parsing/check_wall.c \
-		./srcs/map_and_player/set_map.c \
-		./srcs/map_and_player/move_player.c \
 		./srcs/parsing/check_way.c \
-		./srcs/parsing/init_struct.c \
-		./srcs/bonus/bonus_player.c \
-		./srcs/bonus/bonus_enemies.c \
+		./srcs/map_and_player/move_player.c \
+		./srcs/map_and_player/set_map.c \
+		./srcs/init_struct/init_struct.c \
+		./srcs/init_struct/init_struct2.c \
+		./srcs/init_struct/sprite_init.c \
+		./srcs/enemy/bonus_enemies.c \
+		./srcs/enemy/enemy_way.c \
+		./srcs/enemy/move_enemy.c \
+		./srcs/enemy/three_ways_enemy.c \
+		./srcs/enemy/two_ways_enemy.c \
+		./srcs/destroy_and_free/destroy_sprite.c \
 		./srcs/destroy_and_free/destroy.c \
-		./srcs/bonus/move_enemy.c \
-		./srcs/bonus/two_ways_enemy.c \
-		./srcs/bonus/enemy_way.c \
-		./srcs/bonus/three_ways_enemy.c \
-		./srcs/bonus/bonus_player2.c \
-		./srcs/bonus/score.c \
-		./srcs/parsing/init_struct2.c \
-		./srcs/parsing/sprite_init.c \
+		./srcs/destroy_and_free/ft_error.c \
+		./srcs/bonus_player/bonus_player.c \
+		./srcs/bonus_player/bonus_player2.c \
+		./srcs/bonus_player/score.c \
 
 OBJS = ${SRCS:.c=.o}
 

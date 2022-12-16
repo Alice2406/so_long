@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 14:50:56 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/14 18:26:49 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/16 13:32:12 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	read_map(t_data *d, char *av)
 
 	i = 0;
 	fd = open(av, O_RDONLY);
-	if (fd )
 	if (nb_line_file(av) == 0)
 		return ;
 	d->m->tab = malloc (sizeof(char *) * (nb_line_file(av) + 1));

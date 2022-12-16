@@ -6,7 +6,7 @@
 /*   By: aniezgod <aniezgod@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/25 14:12:28 by aniezgod          #+#    #+#             */
-/*   Updated: 2022/12/15 17:46:40 by aniezgod         ###   ########.fr       */
+/*   Updated: 2022/12/16 13:34:32 by aniezgod         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void	set_map(int x, int y, t_data *d)
 	else
 		d->m->win = mlx_new_window(d->m->mlx, ((x - 1) * 32),
 				((y + 2) * 32), "so_long");
-	sprite_to_image(d);
+	init_all_sprite(d);
 	item_location(d);
 	player_place(d);
 	mlx_hook(d->m->win, 33, (0L), red_cross, d);
@@ -90,21 +90,26 @@ void	item_location(t_data *d)
 void	show_map(t_data *d, char c)
 {
 	if (c == '1')
-		mlx_put_image_to_window(d->m->mlx, d->m->win, d->t->wall, d->m->a, d->m->b);
+		mlx_put_image_to_window(d->m->mlx, d->m->win, d->t->wall,
+			d->m->a, d->m->b);
 	else if (c == '0')
-		mlx_put_image_to_window(d->m->mlx, d->m->win, d->t->sol, d->m->a, d->m->b);
+		mlx_put_image_to_window(d->m->mlx, d->m->win, d->t->sol,
+			d->m->a, d->m->b);
 	else if (c == 'P' && !BONUS)
-		mlx_put_image_to_window(d->m->mlx, d->m->win, d->t->fire, d->m->a, d->m->b);
+		mlx_put_image_to_window(d->m->mlx, d->m->win, d->t->fire,
+			d->m->a, d->m->b);
 	else if (c == 'P')
-		d->m->img = mlx_xpm_file_to_image(d->m->mlx, PBON, &d->m->x, &d->m->y);
+		mlx_put_image_to_window(d->m->mlx, d->m->win, d->p->w_one,
+			d->m->a, d->m->b);
 	else if (c == 'C')
-		mlx_put_image_to_window(d->m->mlx, d->m->win, d->t->bomb, d->m->a, d->m->b);
+		mlx_put_image_to_window(d->m->mlx, d->m->win, d->t->bomb,
+			d->m->a, d->m->b);
 	else if (c == 'N' && BONUS)
-		d->m->img = mlx_xpm_file_to_image(d->m->mlx, ESD, &d->m->x, &d->m->y);
+		mlx_put_image_to_window(d->m->mlx, d->m->win, d->e->ew,
+			d->m->a, d->m->b);
 	else
-		mlx_put_image_to_window(d->m->mlx, d->m->win, d->t->door, d->m->a, d->m->b);
+		mlx_put_image_to_window(d->m->mlx, d->m->win, d->t->door,
+			d->m->a, d->m->b);
 	if (BONUS)
 		show_heart(1, d);
 }
-
- 
